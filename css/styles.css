@@ -1572,16 +1572,17 @@ html {
     );
 }
 
-/* Subtle overall flicker on the whole page */
-body {
-  animation: bodyFlicker 7s steps(20) infinite;
+/* Subtle overall flicker — applied to crt-overlay (NOT body),
+   because filter on body breaks position:fixed descendants. */
+.crt-overlay {
+  animation: crtFlicker 7s steps(20) infinite;
 }
 
-@keyframes bodyFlicker {
-  0%, 94%, 100% { filter: brightness(1); }
-  95%           { filter: brightness(1.08); }
-  96%           { filter: brightness(0.92); }
-  97%           { filter: brightness(1.04); }
+@keyframes crtFlicker {
+  0%, 94%, 100% { opacity: 0.55; }
+  95%           { opacity: 0.35; }
+  96%           { opacity: 0.7;  }
+  97%           { opacity: 0.45; }
 }
 
 /* ============================================
