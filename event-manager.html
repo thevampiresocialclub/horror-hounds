@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Horror Hounds &mdash; Event Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* =============================================================
+           RESET + BASE
+           ============================================================= */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg:          #0a0a0a;
+            --bg-raised:   #141418;
+            --bg-sunken:   #050505;
+            --bg-hover:    #1a1a22;
+            --border:      #222;
+            --border-hi:   #333;
+            --border-focus: #c41e3a;
+            --text:        #e8e0d8;
+            --text-mute:   #8a8078;
+            --text-dim:    #555;
+            --text-faint:  #444;
+            --red:         #c41e3a;
+            --red-dim:     #8b1a2b;
+            --red-wash:    #1e1014;
+            --green:       #4a9;
+            --danger:      #c0252e;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Subtle film grain overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.03;
+            background-image:
+              repeating-conic-gradient(from 0deg, #fff 0deg 1deg, transparent 1deg 2deg);
+            mix-blend-mode: overlay;
+        }
+
+        /* =============================================================
+           APP SHELL
+           ============================================================= */
+        .app {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 6rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* =============================================================
+           HEADER
+           ============================================================= */
+        .em-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .em-header::after {
+            /* red accent rail under the header */
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 80px;
+            height: 1px;
+            background: var(--red);
+            box-shadow: 0 0 8px rgba(196, 30, 58, 0.6);
+        }
+
+        .em-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .em-brand-sup {
+            font-size: 0.7rem;
+            color: var(--red);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .em-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.4rem;
+            letter-spacing: 0.04em;
+            color: var(--text);
+            line-height: 1;
+        }
+
+        .em-sub {
+            font-size: 0.9rem;
+            color: var(--text-mute);
+            margin-top: 0.3rem;
+        }
+
+        .em-rec {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 0.9rem;
+            border: 1px solid var(--border-hi);
+            border-radius: 2px;
+            background: var(--bg-raised);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            color: var(--text-mute);
+        }
+
+        .em-rec-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--red);
+            box-shadow: 0 0 6px var(--red);
+            animation: recPulse 1.8s ease-in-out infinite;
+        }
+
+        @keyframes recPulse {
+            0%, 100% { opacity: 1; }
+            50%      { opacity: 0.35; }
+        }
+
+        /* =============================================================
+           CARDS / SECTIONS
+           ============================================================= */
+        .card {
+            background: var(--bg-raised);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.5rem;
+        }
+
+        .card + .card { margin-top: 1.25rem; }
+
+        .card-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            color: var(--text);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .card-title .count-pill {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.05em;
+            background: var(--red-wash);
+            color: var(--red);
+            border: 1px solid var(--red-dim);
+            padding: 1px 8px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .card-title-accent {
+            width: 3px;
+            height: 18px;
+            background: var(--red);
+            border-radius: 1px;
+        }
+
+        /* =============================================================
+           LOAD SECTION
+           ============================================================= */
+        .load-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .load-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .load-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--text-faint);
+            flex-shrink: 0;
+        }
+
+        .load-indicator.loaded .load-dot { background: var(--green); box-shadow: 0 0 4px var(--green); }
+        .load-indicator.loaded          { color: var(--text); }
+        .load-indicator.error .load-dot { background: var(--danger); }
+        .load-indicator.error           { color: var(--danger); }
+
+        .load-bar .spacer { flex: 1; }
+
+        /* =============================================================
+           BUTTONS
+           ============================================================= */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.55rem 1rem;
+            border: 1px solid var(--border-hi);
+            background: transparent;
+            color: var(--text);
+            border-radius: 3px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.1s;
+            font-family: inherit;
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+
+        .btn:hover   { background: var(--bg-hover); border-color: #444; }
+        .btn:active  { transform: translateY(1px); }
+        .btn svg     { width: 14px; height: 14px; }
+
+        .btn-primary {
+            border-color: var(--red-dim);
+            color: #fff;
+            background: linear-gradient(180deg, #c41e3a, #8b1a2b);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(180deg, #d6253f, #9c2031);
+            border-color: var(--red);
+        }
+
+        .btn-ghost-red {
+            border-color: var(--red-dim);
+            color: var(--red);
+        }
+        .btn-ghost-red:hover { background: var(--red-wash); border-color: var(--red); }
+
+        .btn-success {
+            border-color: #2a5a2a;
+            color: var(--green);
+        }
+        .btn-success:hover { background: #0f1a15; border-color: var(--green); }
+
+        .btn-danger {
+            border-color: #5a2020;
+            color: var(--danger);
+        }
+        .btn-danger:hover { background: #1a1215; border-color: #8B0000; }
+
+        .btn-sm {
+            padding: 0.3rem 0.7rem;
+            font-size: 0.78rem;
+        }
+
+        .btn-icon-only {
+            padding: 0.45rem;
+            width: 32px;
+            height: 32px;
+            justify-content: center;
+        }
+
+        /* =============================================================
+           TABS
+           ============================================================= */
+        .tabs {
+            display: inline-flex;
+            background: var(--bg-raised);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 3px;
+            margin-bottom: 1.25rem;
+            gap: 2px;
+        }
+
+        .tab {
+            padding: 0.5rem 1.25rem;
+            background: none;
+            border: none;
+            color: var(--text-mute);
+            font-size: 0.85rem;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 500;
+            border-radius: 2px;
+            transition: color 0.15s, background 0.15s;
+            letter-spacing: 0.02em;
+        }
+
+        .tab:hover { color: var(--text); }
+
+        .tab.active {
+            background: var(--bg);
+            color: var(--red);
+            box-shadow: inset 0 -2px 0 var(--red);
+        }
+
+        /* =============================================================
+           FORM + PREVIEW (two-column)
+           ============================================================= */
+        .form-preview-split {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .form-panel .card-title {
+            justify-content: space-between;
+        }
+
+        /* Form sections */
+        .form-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px dashed var(--border);
+        }
+        .form-section:last-of-type { border-bottom: none; margin-bottom: 0.5rem; padding-bottom: 0; }
+
+        .form-section-label {
+            grid-column: 1 / -1;
+            font-size: 0.7rem;
+            color: var(--text-mute);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.1rem;
+        }
+        .form-section-label::before {
+            content: '';
+            width: 10px;
+            height: 1px;
+            background: var(--red);
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+        .form-group.full { grid-column: 1 / -1; }
+
+        .form-group label {
+            font-size: 0.72rem;
+            color: var(--text-mute);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            background: var(--bg-sunken);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 0.65rem 0.8rem;
+            color: var(--text);
+            font-size: 0.92rem;
+            font-family: inherit;
+            transition: border-color 0.15s, background 0.15s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-faint);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--border-focus);
+            background: #0e0608;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%238a8078' stroke-width='1.5'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 10px;
+            padding-right: 2rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: 1.25rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .form-actions .msg {
+            font-size: 0.82rem;
+            margin-left: auto;
+        }
+
+        .msg.success { color: var(--green); }
+        .msg.error   { color: var(--danger); }
+
+        /* =============================================================
+           LIVE PREVIEW CARD (mimics site event card)
+           ============================================================= */
+        .preview-wrap {
+            position: sticky;
+            top: 1rem;
+        }
+
+        .preview-label {
+            font-size: 0.7rem;
+            color: var(--text-mute);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .preview-label::before {
+            content: '';
+            width: 10px;
+            height: 1px;
+            background: var(--red);
+        }
+
+        .preview-card {
+            background: var(--bg-raised);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        .preview-image {
+            aspect-ratio: 16 / 9;
+            background: #000 center/cover no-repeat;
+            position: relative;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .preview-image.empty::after {
+            content: 'No image';
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-faint);
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .preview-category {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(6px);
+            color: var(--red);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.6rem;
+            border: 1px solid var(--red-dim);
+            border-radius: 2px;
+            font-weight: 500;
+        }
+
+        .preview-status {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(6px);
+            color: var(--text-mute);
+            font-size: 0.66rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.6rem;
+            border: 1px solid var(--border-hi);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .preview-status.upcoming { color: var(--red); border-color: var(--red-dim); }
+        .preview-status.cancelled { color: var(--danger); border-color: #5a2020; }
+
+        .preview-body { padding: 1.1rem 1.25rem; }
+
+        .preview-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 0.02em;
+            line-height: 1.1;
+            color: var(--text);
+            margin-bottom: 0.8rem;
+            min-height: 2.8rem;
+        }
+
+        .preview-meta {
+            font-size: 0.82rem;
+            color: var(--text-mute);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+            line-height: 1.35;
+        }
+
+        .preview-meta svg {
+            width: 14px; height: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            color: var(--red);
+        }
+
+        .preview-desc {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed var(--border);
+            color: var(--text-mute);
+            font-size: 0.85rem;
+            line-height: 1.55;
+            min-height: 2.5rem;
+        }
+
+        .preview-desc.empty { color: var(--text-faint); font-style: italic; }
+
+        .preview-attendees {
+            margin-top: 0.75rem;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* =============================================================
+           UPCOMING LIST (card grid)
+           ============================================================= */
+        .upcoming-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .up-card {
+            display: flex;
+            gap: 0.9rem;
+            align-items: center;
+            padding: 0.75rem;
+            background: var(--bg-sunken);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--red);
+            border-radius: 3px;
+            transition: border-color 0.15s, background 0.15s;
+        }
+
+        .up-card:hover { background: #0e0608; border-color: var(--border-hi); border-left-color: var(--red); }
+
+        .up-thumb {
+            width: 60px;
+            height: 60px;
+            background: #000 center/cover no-repeat;
+            border-radius: 2px;
+            flex-shrink: 0;
+            border: 1px solid var(--border);
+        }
+
+        .up-info { flex: 1; min-width: 0; }
+
+        .up-title {
+            font-size: 0.9rem;
+            color: var(--text);
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 0.25rem;
+        }
+
+        .up-meta {
+            font-size: 0.75rem;
+            color: var(--text-mute);
+            display: flex;
+            gap: 0.6rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .up-actions {
+            display: flex;
+            gap: 0.35rem;
+            flex-shrink: 0;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* =============================================================
+           EVENT LIST ROWS
+           ============================================================= */
+        .search-box {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: var(--bg-sunken);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 0.75rem 0.9rem 0.75rem 2.5rem;
+            color: var(--text);
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+
+        .search-box input:focus { outline: none; border-color: var(--border-focus); }
+        .search-box input::placeholder { color: var(--text-faint); }
+
+        .search-box svg {
+            position: absolute;
+            left: 0.85rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px; height: 15px;
+            color: var(--text-mute);
+            pointer-events: none;
+        }
+
+        .count-text {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.02em;
+        }
+
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .event-row {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            background: var(--bg-raised);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 0.7rem 0.9rem;
+            transition: all 0.15s;
+        }
+
+        .event-row:hover { background: var(--bg-hover); border-color: var(--border-hi); }
+        .event-row.is-upcoming  { border-left: 3px solid var(--red); padding-left: calc(0.9rem - 2px); }
+        .event-row.is-cancelled { opacity: 0.5; }
+
+        .er-thumb {
+            width: 48px;
+            height: 48px;
+            background: #000 center/cover no-repeat;
+            border-radius: 2px;
+            flex-shrink: 0;
+            border: 1px solid var(--border);
+        }
+
+        .er-date {
+            font-size: 0.76rem;
+            color: var(--text-dim);
+            min-width: 96px;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.02em;
+        }
+
+        .er-title {
+            flex: 1;
+            font-size: 0.88rem;
+            color: var(--text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 0;
+        }
+
+        .er-badges {
+            display: flex;
+            gap: 0.4rem;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 0.68rem;
+            padding: 2px 7px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .badge-upcoming  { background: var(--red-wash); color: var(--red); border: 1px solid var(--red-dim); }
+        .badge-past      { background: #161616; color: var(--text-dim); border: 1px solid var(--border); }
+        .badge-cancelled { background: #1a1215; color: var(--danger); border: 1px solid #5a2020; }
+        .badge-category  { background: var(--bg-sunken); color: var(--text-mute); border: 1px solid var(--border-hi); }
+
+        .er-actions {
+            display: flex;
+            gap: 0.3rem;
+            flex-shrink: 0;
+        }
+
+        .er-actions .btn-sm {
+            padding: 0.25rem 0.6rem;
+            border-color: transparent;
+            color: var(--text-mute);
+        }
+
+        .er-actions .btn-sm:hover { color: var(--red); border-color: var(--red-dim); background: var(--red-wash); }
+        .er-actions .btn-sm.del:hover { color: var(--danger); border-color: #5a2020; background: #1a1215; }
+
+        /* =============================================================
+           EXPORT (floating bottom bar)
+           ============================================================= */
+        .export-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, rgba(10,10,10,0.85), rgba(10,10,10,0.98));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid var(--border);
+            padding: 0.85rem 1.5rem;
+            z-index: 50;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .export-bar.visible { transform: translateY(0); }
+
+        .export-bar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .export-hint {
+            font-size: 0.8rem;
+            color: var(--text-mute);
+            margin-right: auto;
+        }
+        .export-hint strong { color: var(--text); font-weight: 500; }
+
+        .copy-msg {
+            font-size: 0.8rem;
+            color: var(--green);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .copy-msg.show { opacity: 1; }
+
+        /* JSON drawer */
+        details.json-drawer {
+            margin-top: 1.5rem;
+            background: var(--bg-raised);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+
+        details.json-drawer summary {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            font-size: 0.82rem;
+            color: var(--text-mute);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            user-select: none;
+        }
+        details.json-drawer summary::-webkit-details-marker { display: none; }
+        details.json-drawer summary::before {
+            content: '▶';
+            font-size: 0.65rem;
+            color: var(--text-faint);
+            transition: transform 0.15s;
+        }
+        details[open].json-drawer summary::before { transform: rotate(90deg); }
+
+        details.json-drawer textarea {
+            width: 100%;
+            height: 260px;
+            background: var(--bg-sunken);
+            border: none;
+            border-top: 1px solid var(--border);
+            color: var(--text-mute);
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.78rem;
+            padding: 1rem;
+            resize: vertical;
+        }
+        details.json-drawer textarea:focus { outline: none; }
+
+        /* =============================================================
+           HELP BOX
+           ============================================================= */
+        .info-note {
+            background: linear-gradient(90deg, rgba(196,30,58,0.08), transparent 70%);
+            border-left: 3px solid var(--red);
+            padding: 0.85rem 1.1rem;
+            font-size: 0.85rem;
+            color: var(--text-mute);
+            margin-bottom: 1.75rem;
+            line-height: 1.6;
+            border-radius: 0 3px 3px 0;
+        }
+        .info-note code {
+            background: var(--bg-sunken);
+            color: var(--red);
+            padding: 1px 6px;
+            border-radius: 2px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.85em;
+        }
+        .info-note strong { color: var(--text); font-weight: 500; }
+
+        /* =============================================================
+           RESPONSIVE
+           ============================================================= */
+        @media (max-width: 900px) {
+            .form-preview-split { grid-template-columns: 1fr; }
+            .preview-wrap { position: static; }
+            .em-title { font-size: 2rem; }
+        }
+
+        @media (max-width: 600px) {
+            .app { padding: 1.5rem 1rem 7rem; }
+            .em-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .form-section { grid-template-columns: 1fr; }
+            .event-row { flex-wrap: wrap; }
+            .er-date { min-width: auto; }
+            .er-thumb { width: 40px; height: 40px; }
+        }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <!-- HEADER -->
+        <header class="em-header">
+            <div class="em-brand">
+                <span class="em-brand-sup">The Horror Hounds</span>
+                <h1 class="em-title">Event Manager</h1>
+                <p class="em-sub">Summon, edit, and archive the pack's gatherings.</p>
+            </div>
+            <div class="em-rec">
+                <span class="em-rec-dot"></span>
+                <span>REC</span>
+            </div>
+        </header>
+
+        <!-- INFO NOTE -->
+        <div class="info-note">
+            This tool edits <code>events.json</code>. The public site reads this file for upcoming events and merges it with the archived events in <code>js/events-data.js</code>. <strong>The 275+ historical events are not shown here</strong> &mdash; they stay frozen. Only events you add here appear below.
+        </div>
+
+        <!-- LOAD CARD -->
+        <div class="card">
+            <div class="load-bar">
+                <div class="load-indicator" id="loadIndicator">
+                    <span class="load-dot"></span>
+                    <span id="loadStatus">Loading events.json&hellip;</span>
+                </div>
+                <span class="spacer"></span>
+                <button class="btn" onclick="autoLoad()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+                    Reload
+                </button>
+                <button class="btn" onclick="document.getElementById('fileInput').click()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    Load from file&hellip;
+                </button>
+                <input type="file" id="fileInput" accept=".json" onchange="handleFileLoad(event)" style="display:none;">
+            </div>
+        </div>
+
+        <!-- UPCOMING CARD -->
+        <div class="card" id="upcomingPanel" style="display:none;">
+            <h2 class="card-title">
+                <span class="card-title-accent"></span>
+                Upcoming Events
+                <span class="count-pill" id="upcomingCount">0</span>
+            </h2>
+            <div id="upcomingList"></div>
+        </div>
+
+        <!-- TABS -->
+        <div class="tabs">
+            <button class="tab active" data-tab="add" onclick="switchTab('add')">
+                <svg style="vertical-align:-2px; margin-right:4px;" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Add New
+            </button>
+            <button class="tab" data-tab="list" onclick="switchTab('list')">
+                <svg style="vertical-align:-2px; margin-right:4px;" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                All Events
+            </button>
+        </div>
+
+        <!-- ADD / EDIT PANEL -->
+        <div id="addPanel" class="form-preview-split">
+            <div class="card form-panel">
+                <h2 class="card-title">
+                    <span class="card-title-accent"></span>
+                    <span id="formTitle">Add New Event</span>
+                </h2>
+
+                <div class="form-section">
+                    <div class="form-section-label">Basics</div>
+                    <div class="form-group full">
+                        <label>Event Title</label>
+                        <input type="text" id="fTitle" placeholder="Halloween Night Out @ The Frida" oninput="updatePreview()">
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="fDate" oninput="updatePreview()">
+                    </div>
+                    <div class="form-group">
+                        <label>Time</label>
+                        <input type="text" id="fTime" placeholder="7:00 PM" oninput="updatePreview()">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="form-section-label">Location</div>
+                    <div class="form-group">
+                        <label>Venue</label>
+                        <input type="text" id="fVenue" placeholder="The Frida Cinema" oninput="updatePreview()">
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" id="fAddress" placeholder="305 E 4th St, Santa Ana, CA" oninput="updatePreview()">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="form-section-label">Story</div>
+                    <div class="form-group full">
+                        <label>Description</label>
+                        <textarea id="fDesc" placeholder="Short description of the event." oninput="updatePreview()"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="fCategory" onchange="updatePreview()">
+                            <option value="Movie Night">Movie Night</option>
+                            <option value="Book Club">Book Club</option>
+                            <option value="Goth Night">Goth Night</option>
+                            <option value="Meet &amp; Greet">Meet &amp; Greet</option>
+                            <option value="Art/Craft">Art/Craft</option>
+                            <option value="Outdoor/Social">Outdoor/Social</option>
+                            <option value="Live Show">Live Show</option>
+                            <option value="Festival">Festival</option>
+                            <option value="Holiday">Holiday</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Image Filename</label>
+                        <input type="text" id="fImage" placeholder="images/events/e1.jpg" oninput="updatePreview()">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="form-section-label">Meta</div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select id="fStatus" onchange="updatePreview()">
+                            <option value="upcoming">Upcoming</option>
+                            <option value="past">Past</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Attendees</label>
+                        <input type="number" id="fAttendees" placeholder="0" min="0" oninput="updatePreview()">
+                    </div>
+                    <div class="form-group">
+                        <label>Cancelled?</label>
+                        <select id="fCancelled" onchange="updatePreview()">
+                            <option value="false">No</option>
+                            <option value="true">Yes, cancelled</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn btn-primary" id="submitBtn" onclick="submitEvent()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        Add Event
+                    </button>
+                    <button class="btn hidden" id="cancelEditBtn" onclick="cancelEdit()">Cancel Edit</button>
+                    <span class="msg" id="formMsg"></span>
+                </div>
+            </div>
+
+            <!-- LIVE PREVIEW -->
+            <div class="preview-wrap">
+                <div class="preview-label">Live Preview</div>
+                <div class="preview-card" id="previewCard">
+                    <div class="preview-image empty" id="previewImage">
+                        <span class="preview-category" id="previewCategory">Movie Night</span>
+                        <span class="preview-status upcoming" id="previewStatus">Upcoming</span>
+                    </div>
+                    <div class="preview-body">
+                        <h3 class="preview-title" id="previewTitle">Event Title</h3>
+                        <p class="preview-meta" id="previewDate">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            <span>Date &bull; Time</span>
+                        </p>
+                        <p class="preview-meta" id="previewLocation">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Venue, Address</span>
+                        </p>
+                        <p class="preview-desc empty" id="previewDesc">Description will appear here as you type&hellip;</p>
+                        <p class="preview-attendees" id="previewAttendees">0 attending</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LIST PANEL -->
+        <div id="listPanel" class="card hidden">
+            <h2 class="card-title">
+                <span class="card-title-accent"></span>
+                All Managed Events
+            </h2>
+            <div class="search-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <input type="text" id="searchInput" placeholder="Search by title, venue, date, or category..." oninput="renderList()">
+            </div>
+            <div class="count-text" id="countText"></div>
+            <div class="event-list" id="eventList"></div>
+        </div>
+
+        <!-- RAW JSON DRAWER -->
+        <details class="json-drawer">
+            <summary>Raw JSON (advanced)</summary>
+            <textarea id="jsonOutput" readonly></textarea>
+        </details>
+    </div>
+
+    <!-- FLOATING EXPORT BAR -->
+    <div class="export-bar" id="exportBar">
+        <div class="export-bar-inner">
+            <span class="export-hint"><strong id="unsavedCount">0 events</strong> ready to export</span>
+            <span class="copy-msg" id="copyMsg">Copied!</span>
+            <span class="copy-msg" id="saveMsg">Saved!</span>
+            <button class="btn btn-ghost-red" onclick="copyJSON()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy
+            </button>
+            <button class="btn" onclick="downloadJSON()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+            </button>
+            <button class="btn btn-success" id="saveBtn" onclick="saveToFile()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                Save to events.json
+            </button>
+        </div>
+    </div>
+
+<script>
+let events = [];
+let editingId = null;
+let templateData = null;
+let fileHandle = null;
+
+/* =====================================================================
+   LIVE PREVIEW
+   ===================================================================== */
+function updatePreview() {
+    const title = document.getElementById('fTitle').value.trim();
+    const date = document.getElementById('fDate').value;
+    const time = document.getElementById('fTime').value.trim();
+    const venue = document.getElementById('fVenue').value.trim();
+    const address = document.getElementById('fAddress').value.trim();
+    const category = document.getElementById('fCategory').value;
+    const image = document.getElementById('fImage').value.trim();
+    const attendees = parseInt(document.getElementById('fAttendees').value) || 0;
+    const desc = document.getElementById('fDesc').value.trim();
+    const status = document.getElementById('fStatus').value;
+    const cancelled = document.getElementById('fCancelled').value === 'true';
+
+    // Title
+    document.getElementById('previewTitle').textContent = title || 'Event Title';
+
+    // Category
+    document.getElementById('previewCategory').textContent = category;
+
+    // Image
+    const imgEl = document.getElementById('previewImage');
+    if (image) {
+        imgEl.style.backgroundImage = `url("${image}")`;
+        imgEl.classList.remove('empty');
+    } else {
+        imgEl.style.backgroundImage = '';
+        imgEl.classList.add('empty');
+    }
+
+    // Status badge
+    const statusEl = document.getElementById('previewStatus');
+    statusEl.classList.remove('upcoming', 'cancelled');
+    if (cancelled) {
+        statusEl.textContent = 'Cancelled';
+        statusEl.classList.add('cancelled');
+    } else if (status === 'upcoming') {
+        statusEl.textContent = 'Upcoming';
+        statusEl.classList.add('upcoming');
+    } else {
+        statusEl.textContent = 'Past';
+    }
+
+    // Date/time
+    const dateStr = date ? fmtDateLong(date) : 'Date';
+    const timeStr = time || 'Time';
+    document.getElementById('previewDate').querySelector('span').textContent = `${dateStr} \u2022 ${timeStr}`;
+
+    // Location
+    const loc = [venue, address].filter(Boolean).join(', ') || 'Venue, Address';
+    document.getElementById('previewLocation').querySelector('span').textContent = loc;
+
+    // Description
+    const descEl = document.getElementById('previewDesc');
+    if (desc) {
+        descEl.textContent = desc;
+        descEl.classList.remove('empty');
+    } else {
+        descEl.textContent = 'Description will appear here as you type\u2026';
+        descEl.classList.add('empty');
+    }
+
+    // Attendees
+    document.getElementById('previewAttendees').textContent =
+        attendees + ' attending';
+}
+
+/* =====================================================================
+   LOAD
+   ===================================================================== */
+async function autoLoad() {
+    const indicator = document.getElementById('loadIndicator');
+    const status = document.getElementById('loadStatus');
+    indicator.className = 'load-indicator';
+    status.textContent = 'Loading events.json\u2026';
+    try {
+        const r = await fetch('events.json?v=' + Date.now());
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const data = await r.json();
+        events = data.events || [];
+        templateData = data._template || null;
+        status.textContent = events.length + ' event' + (events.length === 1 ? '' : 's') + ' loaded from events.json';
+        indicator.className = 'load-indicator loaded';
+        showExportBar();
+        renderUpcoming();
+        renderList();
+        updateOutput();
+        primeImagePlaceholder();
+    } catch (err) {
+        status.textContent = 'Could not auto-load events.json \u2014 use "Load from file" or add events below';
+        indicator.className = 'load-indicator error';
+        // Still show the export bar so user can save after adding events
+        showExportBar();
+    }
+}
+
+function primeImagePlaceholder() {
+    const maxId = events.length ? Math.max(...events.map(e => e.id || 0), 0) : 0;
+    document.getElementById('fImage').placeholder = 'images/events/e' + (maxId + 1) + '.jpg';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    autoLoad();
+    updatePreview();
+});
+
+function handleFileLoad(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (ev) {
+        const indicator = document.getElementById('loadIndicator');
+        const status = document.getElementById('loadStatus');
+        try {
+            const data = JSON.parse(ev.target.result);
+            events = data.events || [];
+            templateData = data._template || null;
+            status.textContent = events.length + ' event' + (events.length === 1 ? '' : 's') + ' loaded';
+            indicator.className = 'load-indicator loaded';
+            showExportBar();
+            renderUpcoming();
+            renderList();
+            updateOutput();
+            primeImagePlaceholder();
+        } catch (err) {
+            status.textContent = 'Error: Invalid JSON \u2014 ' + err.message;
+            indicator.className = 'load-indicator error';
+        }
+    };
+    reader.readAsText(file);
+}
+
+/* =====================================================================
+   UPCOMING PANEL
+   ===================================================================== */
+function renderUpcoming() {
+    const upcoming = events
+        .filter(ev => ev.status === 'upcoming' && !ev.cancelled)
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    const panel = document.getElementById('upcomingPanel');
+    const list = document.getElementById('upcomingList');
+    const countEl = document.getElementById('upcomingCount');
+
+    if (events.length === 0) {
+        panel.style.display = 'none';
+        return;
+    }
+
+    panel.style.display = 'block';
+    countEl.textContent = upcoming.length;
+
+    if (upcoming.length === 0) {
+        list.innerHTML = '<div class="empty-state">No upcoming events \u2014 add one below, or switch a past event back to upcoming.</div>';
+        return;
+    }
+
+    list.innerHTML = '<div class="upcoming-grid">' + upcoming.map(ev => {
+        const dateStr = ev.date ? fmtDateShort(ev.date) : 'No date';
+        const imageStyle = ev.image ? `style="background-image: url('${esc(ev.image)}')"` : '';
+        return `<div class="up-card">
+            <div class="up-thumb" ${imageStyle}></div>
+            <div class="up-info">
+                <div class="up-title">${esc(ev.title)}</div>
+                <div class="up-meta">
+                    <span>${dateStr}</span>
+                    ${ev.time ? '<span>' + esc(ev.time) + '</span>' : ''}
+                    ${ev.venue ? '<span>&bull; ' + esc(ev.venue) + '</span>' : ''}
+                </div>
+            </div>
+            <div class="up-actions">
+                <button class="btn btn-sm btn-ghost-red" onclick="editEvent(${ev.id})">Edit</button>
+                <button class="btn btn-sm" onclick="archiveEvent(${ev.id})" title="Archive to past">Archive</button>
+            </div>
+        </div>`;
+    }).join('') + '</div>';
+}
+
+function archiveEvent(id) {
+    const idx = events.findIndex(e => e.id === id);
+    if (idx === -1) return;
+    events[idx].status = 'past';
+    renderUpcoming();
+    renderList();
+    updateOutput();
+    showMsg('Event #' + id + ' archived to past');
+}
+
+/* =====================================================================
+   DATE HELPERS
+   ===================================================================== */
+function fmtDateShort(s) {
+    const d = new Date(s + 'T12:00:00');
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function fmtDateLong(s) {
+    const d = new Date(s + 'T12:00:00');
+    return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+/* =====================================================================
+   TABS
+   ===================================================================== */
+function switchTab(tab) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelector(`.tab[data-tab="${tab}"]`).classList.add('active');
+    document.getElementById('addPanel').classList.toggle('hidden', tab !== 'add');
+    document.getElementById('listPanel').classList.toggle('hidden', tab !== 'list');
+}
+
+/* =====================================================================
+   ADD / EDIT
+   ===================================================================== */
+function submitEvent() {
+    const title = document.getElementById('fTitle').value.trim();
+    const date = document.getElementById('fDate').value;
+    const time = document.getElementById('fTime').value.trim();
+    const venue = document.getElementById('fVenue').value.trim();
+    const address = document.getElementById('fAddress').value.trim();
+    const category = document.getElementById('fCategory').value;
+    const image = document.getElementById('fImage').value.trim();
+    const attendees = parseInt(document.getElementById('fAttendees').value) || 0;
+    const description = document.getElementById('fDesc').value.trim();
+    const status = document.getElementById('fStatus').value;
+    const cancelled = document.getElementById('fCancelled').value === 'true';
+
+    if (!title) return showMsg('Title is required', true);
+    if (!date) return showMsg('Date is required', true);
+
+    if (editingId !== null) {
+        const idx = events.findIndex(e => e.id === editingId);
+        if (idx === -1) return showMsg('Event not found', true);
+        events[idx] = {
+            ...events[idx],
+            title, date, time, venue, address, category, image, attendees, description, status, cancelled
+        };
+        showMsg('Event updated');
+        editingId = null;
+        document.getElementById('formTitle').textContent = 'Add New Event';
+        document.getElementById('submitBtn').innerHTML =
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Event';
+        document.getElementById('cancelEditBtn').classList.add('hidden');
+    } else {
+        const maxId = Math.max(...events.map(e => e.id || 0), 0);
+        const newEvent = {
+            id: maxId + 1,
+            title, date, time, venue, address, description, attendees,
+            image: image || 'images/events/e' + (maxId + 1) + '.jpg',
+            category, status, cancelled
+        };
+        events.unshift(newEvent);
+        showMsg('Event #' + newEvent.id + ' added');
+    }
+
+    clearForm();
+    renderUpcoming();
+    renderList();
+    updateOutput();
+    showExportBar();
+}
+
+function editEvent(id) {
+    const ev = events.find(e => e.id === id);
+    if (!ev) return;
+
+    editingId = id;
+    document.getElementById('fTitle').value = ev.title || '';
+    document.getElementById('fDate').value = ev.date || '';
+    document.getElementById('fTime').value = ev.time || '';
+    document.getElementById('fVenue').value = ev.venue || '';
+    document.getElementById('fAddress').value = ev.address || '';
+    document.getElementById('fCategory').value = ev.category || 'Movie Night';
+    document.getElementById('fImage').value = ev.image || '';
+    document.getElementById('fAttendees').value = ev.attendees || 0;
+    document.getElementById('fDesc').value = ev.description || '';
+    document.getElementById('fStatus').value = ev.status || 'past';
+    document.getElementById('fCancelled').value = ev.cancelled ? 'true' : 'false';
+
+    document.getElementById('formTitle').textContent = 'Edit Event #' + id;
+    document.getElementById('submitBtn').innerHTML =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Save Changes';
+    document.getElementById('cancelEditBtn').classList.remove('hidden');
+
+    switchTab('add');
+    updatePreview();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function deleteEvent(id) {
+    if (!confirm('Delete event #' + id + '? This cannot be undone.')) return;
+    events = events.filter(e => e.id !== id);
+    renderUpcoming();
+    renderList();
+    updateOutput();
+    showMsg('Event #' + id + ' deleted');
+}
+
+function cancelEdit() {
+    editingId = null;
+    clearForm();
+    document.getElementById('formTitle').textContent = 'Add New Event';
+    document.getElementById('submitBtn').innerHTML =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Event';
+    document.getElementById('cancelEditBtn').classList.add('hidden');
+    updatePreview();
+}
+
+function clearForm() {
+    ['fTitle','fDate','fTime','fVenue','fAddress','fImage','fAttendees','fDesc'].forEach(id => {
+        document.getElementById(id).value = '';
+    });
+    document.getElementById('fStatus').value = 'upcoming';
+    document.getElementById('fCancelled').value = 'false';
+    document.getElementById('fCategory').value = 'Movie Night';
+    primeImagePlaceholder();
+    updatePreview();
+}
+
+/* =====================================================================
+   LIST
+   ===================================================================== */
+function renderList() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const filtered = events.filter(ev =>
+        (ev.title || '').toLowerCase().includes(query) ||
+        (ev.venue || '').toLowerCase().includes(query) ||
+        (ev.category || '').toLowerCase().includes(query) ||
+        (ev.date || '').includes(query)
+    );
+
+    filtered.sort((a, b) => {
+        if (a.status === 'upcoming' && b.status !== 'upcoming') return -1;
+        if (a.status !== 'upcoming' && b.status === 'upcoming') return 1;
+        if (a.status === 'upcoming') return new Date(a.date) - new Date(b.date);
+        return new Date(b.date) - new Date(a.date);
+    });
+
+    const upcomingCount = events.filter(e => e.status === 'upcoming').length;
+    document.getElementById('countText').textContent =
+        filtered.length + ' event' + (filtered.length === 1 ? '' : 's') +
+        (query ? ` matching "${query}"` : '') +
+        ' (' + upcomingCount + ' upcoming, ' + (events.length - upcomingCount) + ' past)';
+
+    if (filtered.length === 0) {
+        document.getElementById('eventList').innerHTML =
+            '<div class="empty-state">' +
+            (events.length === 0 ? 'No events yet &mdash; add one using the "Add New" tab.' : 'No events match your search.') +
+            '</div>';
+        return;
+    }
+
+    document.getElementById('eventList').innerHTML = filtered.map(ev => {
+        let rowClass = 'event-row';
+        let statusBadge = '';
+        if (ev.cancelled) {
+            rowClass += ' is-cancelled';
+            statusBadge = '<span class="badge badge-cancelled">Cancelled</span>';
+        } else if (ev.status === 'upcoming') {
+            rowClass += ' is-upcoming';
+            statusBadge = '<span class="badge badge-upcoming">Upcoming</span>';
+        } else {
+            statusBadge = '<span class="badge badge-past">Past</span>';
+        }
+
+        const catBadge = ev.category ? `<span class="badge badge-category">${esc(ev.category)}</span>` : '';
+        const imageStyle = ev.image ? `style="background-image: url('${esc(ev.image)}')"` : '';
+
+        return `<div class="${rowClass}">
+            <div class="er-thumb" ${imageStyle}></div>
+            <span class="er-date">${ev.date || 'No date'}</span>
+            <span class="er-title">${esc(ev.title)}</span>
+            <div class="er-badges">${catBadge}${statusBadge}</div>
+            <div class="er-actions">
+                <button class="btn btn-sm" onclick="editEvent(${ev.id})">Edit</button>
+                <button class="btn btn-sm del" onclick="deleteEvent(${ev.id})">Delete</button>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+/* =====================================================================
+   EXPORT
+   ===================================================================== */
+function updateOutput() {
+    const output = { events: events };
+    if (templateData) output._template = templateData;
+    const json = JSON.stringify(output, null, 2);
+    document.getElementById('jsonOutput').value = json;
+    document.getElementById('unsavedCount').textContent =
+        events.length + ' event' + (events.length === 1 ? '' : 's');
+}
+
+function showExportBar() {
+    document.getElementById('exportBar').classList.add('visible');
+}
+
+function copyJSON() {
+    const text = document.getElementById('jsonOutput').value;
+    navigator.clipboard.writeText(text).then(() => {
+        const msg = document.getElementById('copyMsg');
+        msg.classList.add('show');
+        setTimeout(() => msg.classList.remove('show'), 2000);
+    });
+}
+
+function downloadJSON() {
+    const text = document.getElementById('jsonOutput').value;
+    const blob = new Blob([text], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'events.json';
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+async function saveToFile() {
+    const saveBtn = document.getElementById('saveBtn');
+    const saveMsg = document.getElementById('saveMsg');
+
+    if (!('showOpenFilePicker' in window) && !('showSaveFilePicker' in window)) {
+        alert('Your browser does not support direct file saving. Try Chrome or Edge, or use the Download button instead.');
+        return;
+    }
+
+    try {
+        if (!fileHandle) {
+            if ('showOpenFilePicker' in window) {
+                const [handle] = await window.showOpenFilePicker({
+                    types: [{ description: 'JSON File', accept: { 'application/json': ['.json'] } }],
+                    multiple: false
+                });
+                fileHandle = handle;
+                const perm = await fileHandle.requestPermission({ mode: 'readwrite' });
+                if (perm !== 'granted') {
+                    fileHandle = null;
+                    alert('Write permission was not granted. Try again and click "Allow".');
+                    return;
+                }
+            } else {
+                fileHandle = await window.showSaveFilePicker({
+                    suggestedName: 'events.json',
+                    types: [{ description: 'JSON File', accept: { 'application/json': ['.json'] } }]
+                });
+            }
+        }
+
+        const content = document.getElementById('jsonOutput').value;
+        const writable = await fileHandle.createWritable();
+        await writable.write(content);
+        await writable.close();
+
+        saveBtn.innerHTML =
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Saved to ' + fileHandle.name;
+        saveMsg.textContent = 'Saved at ' + new Date().toLocaleTimeString();
+        saveMsg.classList.add('show');
+        setTimeout(() => saveMsg.classList.remove('show'), 3000);
+    } catch (err) {
+        if (err.name === 'AbortError') return;
+        console.error(err);
+        alert('Save failed: ' + err.message + '\n\nThe file may have been moved, or permission was lost. Try Save again to re-select the file.');
+        fileHandle = null;
+    }
+}
+
+/* =====================================================================
+   UI HELPERS
+   ===================================================================== */
+function showMsg(text, isError) {
+    const el = document.getElementById('formMsg');
+    el.textContent = text;
+    el.className = 'msg ' + (isError ? 'error' : 'success');
+    setTimeout(() => { el.textContent = ''; el.className = 'msg'; }, 3000);
+}
+
+function esc(t) {
+    if (t === null || t === undefined) return '';
+    const m = { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#039;' };
+    return String(t).replace(/[&<>"']/g, c => m[c]);
+}
+</script>
+
+</body>
+</html>

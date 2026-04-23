@@ -1,0 +1,17 @@
+{
+  "events": [],
+  "_template": {
+    "id": 1,
+    "title": "Event Title",
+    "date": "2026-01-01",
+    "time": "7:00 PM",
+    "venue": "Venue Name",
+    "address": "123 Main St, City, CA",
+    "description": "Short description of the event.",
+    "attendees": 0,
+    "image": "images/events/e1.jpg",
+    "category": "Movie Night",
+    "status": "upcoming",
+    "cancelled": false
+  }
+}

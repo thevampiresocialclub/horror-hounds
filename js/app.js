@@ -14,6 +14,8 @@
 
   // --- DOM Elements ---
   const pastEventsGrid = document.getElementById('pastEventsGrid');
+  const upcomingEventsGrid = document.getElementById('upcomingEventsGrid');
+  const upcomingPlaceholder = document.querySelector('.upcoming-placeholder');
   const filterCategories = document.getElementById('filterCategories');
   const searchInput = document.getElementById('searchInput');
   const loadMoreBtn = document.getElementById('loadMoreBtn');
@@ -36,7 +38,11 @@
   const modalDescription = document.getElementById('modalDescription');
 
   // --- Initialize ---
-  function init() {
+  async function init() {
+    // Load events.json (new/upcoming events managed via event-manager.html)
+    // and merge with existing EVENTS_DATA archive.
+    await loadManagedEvents();
+
     sortEvents();
     renderFilterPills();
     applyFilters();
@@ -46,6 +52,115 @@
     setupModal();
     setupScrollAnimations();
     animateStats();
+  }
+
+  // --- Load events.json & merge ---
+  async function loadManagedEvents() {
+    try {
+      const res = await fetch('events.json?v=' + Date.now());
+      if (!res.ok) return;
+      const data = await res.json();
+      const managed = (data.events || []).filter(e => !e.cancelled);
+
+      // Normalize to EVENTS_DATA schema: combine venue + address into `location`
+      const normalized = managed.map(e => ({
+        title: e.title,
+        date: e.date,
+        time: e.time,
+        location: [e.venue, e.address].filter(Boolean).join(', '),
+        description: e.description,
+        attendees: e.attendees || 0,
+        category: e.category || 'Meet & Greet',
+        image: e.image,
+        _status: e.status
+      }));
+
+      // Split: upcoming (status=upcoming AND date >= today) vs past
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      const upcoming = normalized.filter(ev => {
+        const d = new Date(ev.date + 'T00:00:00');
+        return ev._status === 'upcoming' && d >= today;
+      });
+      const past = normalized.filter(ev => !upcoming.includes(ev));
+
+      // Merge past events into the main archive
+      past.forEach(ev => EVENTS_DATA.push(ev));
+
+      // Render upcoming events in the upcoming section
+      renderUpcomingEvents(upcoming);
+    } catch (err) {
+      // Fail silently — events.json may not exist yet or fetch may be blocked (file://)
+      console.log('events.json not loaded:', err.message);
+    }
+  }
+
+  // --- Render upcoming events ---
+  function renderUpcomingEvents(upcoming) {
+    if (!upcomingEventsGrid) return;
+
+    if (!upcoming.length) {
+      // Keep the "Stay tuned, darklings..." placeholder
+      if (upcomingPlaceholder) upcomingPlaceholder.style.display = '';
+      upcomingEventsGrid.innerHTML = '';
+      return;
+    }
+
+    // Hide placeholder, show grid
+    if (upcomingPlaceholder) upcomingPlaceholder.style.display = 'none';
+
+    // Sort soonest first
+    upcoming.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    upcomingEventsGrid.innerHTML = upcoming.map((event, index) => `
+      <article class="event-card fade-in upcoming-event-card" data-upcoming-index="${index}" style="animation-delay: ${index * 0.05}s">
+        <div class="event-card-image">
+          <img src="${event.image}" alt="${escapeAttr(event.title)}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 225%22><rect fill=%22%231a1a1a%22 width=%22400%22 height=%22225%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23444%22 font-size=%2220%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22sans-serif%22>The Horror Hounds</text></svg>'">
+          <span class="event-card-category">${escapeHtml(event.category)}</span>
+        </div>
+        <div class="event-card-body">
+          <h3 class="event-card-title">${escapeHtml(event.title)}</h3>
+          <p class="event-card-date">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            ${formatDate(event.date)} &bull; ${escapeHtml(event.time || '')}
+          </p>
+          <p class="event-card-location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            ${escapeHtml(truncateLocation(event.location || ''))}
+          </p>
+        </div>
+      </article>
+    `).join('');
+
+    // Open modal for upcoming cards
+    upcomingEventsGrid.addEventListener('click', (e) => {
+      const card = e.target.closest('.upcoming-event-card');
+      if (!card) return;
+      const index = parseInt(card.dataset.upcomingIndex);
+      openModal(upcoming[index]);
+    });
+
+    // Trigger fade-in
+    requestAnimationFrame(() => {
+      upcomingEventsGrid.querySelectorAll('.event-card.fade-in').forEach((card, i) => {
+        setTimeout(() => card.classList.add('visible'), i * 50);
+      });
+    });
+  }
+
+  function escapeHtml(str) {
+    if (str === null || str === undefined) return '';
+    const map = { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#039;' };
+    return String(str).replace(/[&<>"']/g, c => map[c]);
+  }
+
+  function escapeAttr(str) {
+    return escapeHtml(str);
   }
 
   // --- Sort events newest to oldest ---
