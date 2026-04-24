@@ -9,39 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/hero-vhs.css?v=2">
 </head>
 <body>
-  <!-- VHS tape border frame at top -->
-  <div class="vhs-frame" aria-hidden="true">
-    <div class="vhs-tape-strand"></div>
-    <div class="vhs-scan"></div>
-    <div class="vhs-cassette">
-      <span class="vhs-screw vhs-screw-tl"></span>
-      <div class="vhs-reel vhs-reel-left">
-        <div class="vhs-reel-inner"></div>
-        <div class="vhs-reel-hub"></div>
-      </div>
-      <div class="vhs-label">
-        <div class="vhs-label-stripe"></div>
-        <div class="vhs-label-body">
-          <div class="vhs-label-title">The Horror Hounds</div>
-          <div class="vhs-label-sub">VOL. &#8734; &bull; REC &#9679; &bull; SLP</div>
-        </div>
-      </div>
-      <div class="vhs-reel vhs-reel-right">
-        <div class="vhs-reel-inner"></div>
-        <div class="vhs-reel-hub"></div>
-      </div>
-      <span class="vhs-tab"></span>
-      <span class="vhs-screw vhs-screw-tr"></span>
-    </div>
-    <div class="vhs-rec-badge">
-      <span class="vhs-rec-dot"></span>
-      <span>REC</span>
-    </div>
-  </div>
-
   <!-- Page-wide CRT scanline overlay (horror atmosphere) -->
   <div class="crt-overlay" aria-hidden="true"></div>
   <div class="crt-vignette" aria-hidden="true"></div>
@@ -91,50 +60,19 @@
     </div>
   </nav>
 
-  <!-- Hero Section — VHS cassette -->
+  <!-- Hero Section — VHS tape image -->
   <section class="hero" id="hero">
-    <div class="vhs-stage">
-      <div class="vhs-cassette-v2">
-        <!-- Corner screws -->
-        <span class="vhs-screw-v2 tl"></span>
-        <span class="vhs-screw-v2 tr"></span>
-        <span class="vhs-screw-v2 bl"></span>
-        <span class="vhs-screw-v2 br"></span>
+    <div class="hero-vhs">
+      <img class="vhs-image" src="img/vhs-hero.png" alt="The Horror Hounds &mdash; Horror fans by nature, friends by choice. Movies, Artwalks, Popups, Oddities &amp; More.">
+      <div class="vhs-scan" aria-hidden="true"></div>
+    </div>
 
-        <!-- Hamburger menu, inside the cassette -->
-        <div class="vhs-menu">
-          <button class="vhs-menu-toggle" id="vhsMenuToggle" aria-expanded="false" aria-controls="vhsMenuPanel" aria-label="Open menu">
-            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-          </button>
-          <div class="vhs-menu-panel" id="vhsMenuPanel" role="menu">
-            <a href="#about" role="menuitem">About</a>
-            <a href="#upcoming" role="menuitem">Upcoming</a>
-            <a href="#past-events" role="menuitem">Past Events</a>
-            <a href="https://www.instagram.com/thehorrorhoundsmeetup/" target="_blank" rel="noopener" role="menuitem">Instagram</a>
-            <a href="https://discord.gg/Q2hhyeknyr" target="_blank" rel="noopener" class="menu-cta" role="menuitem">Join Discord</a>
-          </div>
-        </div>
-
-        <!-- Left reel -->
-        <div class="vhs-reel-well left" aria-hidden="true">
-          <div class="vhs-reel-disk"></div>
-          <div class="vhs-reel-hub-v2"></div>
-        </div>
-
-        <!-- Label -->
-        <div class="vhs-label-v2">
-          <div class="vhs-label-body-v2">
-            <h1 class="vhs-label-title-v2">Horror<br>Hounds</h1>
-            <p class="vhs-label-tagline">Horror fans by nature, friends by choice.</p>
-          </div>
-        </div>
-
-        <!-- Right reel -->
-        <div class="vhs-reel-well right" aria-hidden="true">
-          <div class="vhs-reel-disk"></div>
-          <div class="vhs-reel-hub-v2"></div>
-        </div>
-      </div>
+    <!-- Title/tagline: present below the tape in DOM for a11y + SEO, visually hidden -->
+    <div class="vhs-label-sr">
+      <h1>Horror Hounds</h1>
+      <p>Horror fans by nature, friends by choice &mdash; bound by terror, united in fun.</p>
+      <p>Where the weird thrive and no one gets left in the shadows.</p>
+      <p>Movies &bull; Artwalks &bull; Popups &bull; Oddities &amp; More</p>
     </div>
 
     <!-- Next event card -->
@@ -147,8 +85,8 @@
       </div>
       <p class="evt-desc">New events are being conjured from the shadows. Check back soon &mdash; the next gathering will be summoned here.</p>
       <div class="evt-actions">
-        <a href="#upcoming" class="btn">See Upcoming</a>
-        <a href="https://discord.gg/Q2hhyeknyr" target="_blank" rel="noopener" class="btn ghost">Join Discord</a>
+        <a href="#upcoming" class="btn btn-primary">See Upcoming</a>
+        <a href="https://discord.gg/Q2hhyeknyr" target="_blank" rel="noopener" class="btn btn-outline">Join Discord</a>
       </div>
     </div>
 
@@ -159,29 +97,6 @@
       <div class="stat"><span class="stat-number" data-target="4">0</span><span class="stat-label">Years</span></div>
     </div>
   </section>
-
-  <script>
-    // Hamburger menu toggle
-    (function() {
-      const btn = document.getElementById('vhsMenuToggle');
-      const panel = document.getElementById('vhsMenuPanel');
-      if (!btn || !panel) return;
-      btn.addEventListener('click', () => {
-        const open = panel.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-      document.addEventListener('click', (e) => {
-        if (!panel.contains(e.target) && !btn.contains(e.target)) {
-          panel.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
-        }
-      });
-      panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-        panel.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      }));
-    })();
-  </script>
 
   <!-- About Section -->
   <section class="about" id="about">
