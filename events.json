@@ -2589,6 +2589,45 @@
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
+    },
+    {
+      "id": 186,
+      "title": "Kraft Werks - Making Zip Tie Crowns",
+      "date": "2026-04-19",
+      "time": "1:00 PM",
+      "venue": "4th Street Market Downtown Santa Ana",
+      "address": "201 E 4th St, Santa Ana, CA 92701",
+      "description": "Come join us and hang out with food, drink and crafting.\nPark in the parking lot behind Frida Cinema for ease, there is a fee.\nWe'll be in the patio area in the back, cant miss us!\n\nI'll bring the supplies:\n\nhair bands\nzip ties (black only)\nfake black flowers\nblack gems or sparkly things to attach\nblack feathers\nglue\netc.\n\nYou bring:\nideas\nconversation\nfriendly attitude\nmoneys for food and drink to support the venue",
+      "attendees": 10,
+      "image": "images/ziptiecrown.png",
+      "status": "past",
+      "cancelled": false
+    },
+    {
+      "id": 187,
+      "title": "Renaissance Faire - All Hallows Spring Edition",
+      "date": "2026-04-26",
+      "time": "10:00 AM",
+      "venue": "Renaissance Faire Irwindale",
+      "address": "427W+87, Irwindale, CA 91706",
+      "description": "All Hallows Spring brings a spooky theme to Renaissance Pleasure Faire.  Shop, watch shows, eat, and watch the joust with us!  We're going as witches and wizards and we love casting spells!!!",
+      "attendees": 15,
+      "image": "images/witchWizardRenFaire.png",
+      "status": "upcoming",
+      "cancelled": false
+    },
+    {
+      "id": 121,
+      "title": "Ghoul's Day Out - MCR fan day event",
+      "date": "2026-05-23",
+      "time": "Noon",
+      "venue": "Immanuel Presbyterian Church",
+      "address": "3300 Wilshire Boulevard, Los Angeles, CA 90005",
+      "description": "Ghoul's Day Out is a My Chemical Romance fan event located at the church where the music video for Helena was filmed.  There will be lots of vendors, photo ops at the church, live music and cover band, food trucks.\n\nhttps://www.instagram.com/ghoulsdayoutla\n\nIf you want to take photos at the church, you should arrive at 11AM, because the line takes about an hour.\nWe'll meet at noon near the cover band area and check out the vendors.   We'll retire for lunch after we are done at a nice place to eat in the Koreatown area.",
+      "attendees": 4,
+      "image": "images/ghoulsDayOut.png",
+      "status": "upcoming",
+      "cancelled": false
     }
   ],
   "_template": {
