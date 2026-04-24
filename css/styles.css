@@ -1197,26 +1197,60 @@ html {
 }
 
 /* ============================================
-   HERO VHS — image-based
+   HERO VHS — image-based + spooky VHS effects
    ============================================ */
 
 .hero-vhs {
   position: relative;
-  display: inline-block;
+  display: block;
+  width: 1080px;
   max-width: 100%;
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.8))
-          drop-shadow(0 0 24px rgba(196, 30, 58, 0.18));
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
+  /* Pulsing red horror aura around the tape */
+  filter:
+    drop-shadow(0 14px 40px rgba(0, 0, 0, 0.9))
+    drop-shadow(0 0 30px rgba(196, 30, 58, 0.35));
+  animation: vhsGlowPulse 4.5s ease-in-out infinite;
+}
+
+@keyframes vhsGlowPulse {
+  0%, 100% {
+    filter:
+      drop-shadow(0 14px 40px rgba(0, 0, 0, 0.9))
+      drop-shadow(0 0 24px rgba(196, 30, 58, 0.28));
+  }
+  50% {
+    filter:
+      drop-shadow(0 14px 40px rgba(0, 0, 0, 0.9))
+      drop-shadow(0 0 48px rgba(196, 30, 58, 0.55))
+      drop-shadow(0 0 80px rgba(196, 30, 58, 0.25));
+  }
 }
 
 .hero-vhs .vhs-image {
   display: block;
   width: 100%;
-  max-width: 720px;
   height: auto;
+  position: relative;
+  z-index: 1;
+  /* Periodic subtle brightness jitter + chromatic split on the image itself */
+  animation: vhsImgFlicker 7s steps(24) infinite;
+  image-rendering: auto;
 }
 
-/* Scanline overlay clipped to the image shape */
+@keyframes vhsImgFlicker {
+  0%, 100%      { filter: none; }
+  3%            { filter: hue-rotate(-8deg) saturate(1.2) brightness(1.08); }
+  4%            { filter: none; }
+  42%           { filter: brightness(0.82) contrast(1.15); }
+  43%           { filter: none; }
+  88%           { filter: blur(0.4px) brightness(1.1) hue-rotate(4deg); }
+  89%           { filter: none; }
+  95%           { filter: brightness(1.3) contrast(1.2); }
+  96%           { filter: none; }
+}
+
+/* Scanline overlay clipped to the image area */
 .hero-vhs .vhs-scan {
   position: absolute;
   inset: 0;
@@ -1224,19 +1258,67 @@ html {
   background: repeating-linear-gradient(
     180deg,
     transparent 0 2px,
-    rgba(255, 255, 255, 0.06) 2px 3px
+    rgba(255, 255, 255, 0.07) 2px 3px
   );
-  opacity: 0.6;
+  opacity: 0.55;
   mix-blend-mode: overlay;
   animation: vhsFlicker 6s steps(12) infinite;
-  border-radius: inherit;
+  z-index: 2;
 }
 
 @keyframes vhsFlicker {
-  0%, 92%, 100% { opacity: 0.6; }
+  0%, 92%, 100% { opacity: 0.55; transform: translateX(0); }
   93%           { opacity: 0.25; transform: translateX(-1px); }
   95%           { opacity: 0.85; transform: translateX(1px); }
-  96%           { opacity: 0.35; }
+  96%           { opacity: 0.35; transform: translateX(0); }
+}
+
+/* Tracking band: a bright horizontal distortion that sweeps down the tape periodically */
+.hero-vhs::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 14px;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 30%,
+    rgba(196, 30, 58, 0.4) 50%,
+    rgba(255, 255, 255, 0.15) 70%,
+    transparent 100%
+  );
+  mix-blend-mode: screen;
+  filter: blur(1px);
+  animation: vhsTracking 9s linear infinite;
+  opacity: 0;
+}
+
+@keyframes vhsTracking {
+  /* Stays invisible most of the time; sweeps down every cycle */
+  0%, 100%  { top: -20px; opacity: 0; }
+  2%        { opacity: 0.9; }
+  14%       { top: 100%; opacity: 0.9; }
+  15%       { opacity: 0; }
+}
+
+/* Chromatic aberration — a faint red/cyan edge ghost of the image */
+.hero-vhs::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  /* Crimson vignette around the tape that pulses with the glow */
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(196, 30, 58, 0.08) 80%,
+    rgba(196, 30, 58, 0.2) 100%
+  );
+  mix-blend-mode: screen;
 }
 
 /* Visually hidden title/label text: present in DOM for a11y + SEO, not rendered */
@@ -1525,7 +1607,7 @@ html {
 
 .bat-column {
   position: fixed;
-  top: 220px;
+  top: 120px;
   bottom: 20px;
   width: 70px;
   z-index: 2;
@@ -1534,8 +1616,9 @@ html {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  color: #000;
-  opacity: 0.85;
+  /* Silhouette with enough lift off true black that the drop-shadow reads */
+  color: #140808;
+  opacity: 0.95;
 }
 
 .bat-column-left  { left: 0; }
@@ -1545,8 +1628,9 @@ html {
   width: 56px;
   height: auto;
   filter:
-    drop-shadow(0 0 4px rgba(196, 30, 58, 0.35))
-    drop-shadow(0 2px 3px rgba(0, 0, 0, 0.8));
+    drop-shadow(0 0 10px rgba(196, 30, 58, 0.7))
+    drop-shadow(0 0 3px rgba(196, 30, 58, 0.9))
+    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.85));
 }
 
 /* Vary bat sizes slightly for organic feel */
