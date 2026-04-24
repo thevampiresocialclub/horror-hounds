@@ -10,7 +10,23 @@
   let currentPage = 1;
   let activeCategory = 'All';
   let searchQuery = '';
-  let filteredEvents = [...EVENTS_DATA];
+
+  // Events are now loaded from events.json (matching vampire-social-club setup).
+  let EVENTS_DATA = [];
+  let filteredEvents = [];
+
+  const EVENT_CATEGORIES = [
+    'All',
+    'Movie Night',
+    'Book Club',
+    'Goth Night',
+    'Meet & Greet',
+    'Art/Craft',
+    'Outdoor/Social',
+    'Live Show',
+    'Festival',
+    'Holiday'
+  ];
 
   // --- DOM Elements ---
   const pastEventsGrid = document.getElementById('pastEventsGrid');
@@ -39,9 +55,7 @@
 
   // --- Initialize ---
   async function init() {
-    // Load events.json (new/upcoming events managed via event-manager.html)
-    // and merge with existing EVENTS_DATA archive.
-    await loadManagedEvents();
+    await loadEvents();
 
     sortEvents();
     renderFilterPills();
@@ -54,19 +68,22 @@
     animateStats();
   }
 
-  // --- Load events.json & merge ---
-  async function loadManagedEvents() {
+  // --- Load events.json (single source of truth) ---
+  async function loadEvents() {
     try {
       const res = await fetch('events.json?v=' + Date.now());
       if (!res.ok) return;
       const data = await res.json();
-      const managed = (data.events || []).filter(e => !e.cancelled);
+      const all = (data.events || []).filter(e => !e.cancelled);
 
-      // Normalize to EVENTS_DATA schema: combine venue + address into `location`
-      const normalized = managed.map(e => ({
+      // Normalize: derive `location` from venue + address for the existing
+      // render code that uses event.location.
+      const normalized = all.map(e => ({
         title: e.title,
         date: e.date,
         time: e.time,
+        venue: e.venue,
+        address: e.address,
         location: [e.venue, e.address].filter(Boolean).join(', '),
         description: e.description,
         attendees: e.attendees || 0,
@@ -75,23 +92,24 @@
         _status: e.status
       }));
 
-      // Split: upcoming (status=upcoming AND date >= today) vs past
+      // Split upcoming vs past by date + status (vampire's logic).
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
-      const upcoming = normalized.filter(ev => {
+      const upcoming = [];
+      const past = [];
+      normalized.forEach(ev => {
         const d = new Date(ev.date + 'T00:00:00');
-        return ev._status === 'upcoming' && d >= today;
+        if (ev._status === 'upcoming' && d >= today) {
+          upcoming.push(ev);
+        } else {
+          past.push(ev);
+        }
       });
-      const past = normalized.filter(ev => !upcoming.includes(ev));
 
-      // Merge past events into the main archive
-      past.forEach(ev => EVENTS_DATA.push(ev));
-
-      // Render upcoming events in the upcoming section
+      EVENTS_DATA = past;
       renderUpcomingEvents(upcoming);
     } catch (err) {
-      // Fail silently — events.json may not exist yet or fetch may be blocked (file://)
       console.log('events.json not loaded:', err.message);
     }
   }

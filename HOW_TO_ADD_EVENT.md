@@ -90,11 +90,11 @@ Once an event has passed, you can optionally:
 
 ---
 
-## Important: Where Are the Old Events?
+## Where the data lives
 
-The ~275 historical events from 2021-2025 are stored in `js/events-data.js` (a separate archive file). The Event Manager intentionally does NOT show those — they stay frozen.
+**Every event — upcoming and past — lives in a single file: `events.json`** at the root of the repo. The Event Manager loads that file, lets you edit it, and writes it back. The website reads the exact same file.
 
-The Event Manager and `events.json` are for **new events going forward**. Both sources are merged automatically when the website loads.
+The old `js/events-data.js` archive has been retired to `backup/events-data.js.bak` and is no longer used by the site.
 
 ---
 
