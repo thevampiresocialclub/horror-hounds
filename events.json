@@ -9,7 +9,7 @@
       "address": "3101 West Harvard St, Santa Ana, CA",
       "description": "CREEP IT REAL FESTIVE - OFFICIAL ANNOUNCEMENT",
       "attendees": 9,
-      "image": "images/events/event_p02_img03.jpeg",
+      "image": "images/event_p02_img03.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -23,7 +23,7 @@
       "address": "517 N Harbor Blvd, Fullerton, CA",
       "description": "Ipso Facto in Fullerton: So-Cal Gothic Fashion Occult Boutique Established 1989. They are having a 36th anniversary celebration.",
       "attendees": 1,
-      "image": "images/events/event_p02_img05.jpeg",
+      "image": "images/event_p02_img05.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -37,7 +37,7 @@
       "address": "5200 Faculty Ave, Lakewood, CA",
       "description": "Addicted to the Knife is back! REPO is a rock opera musical movie.",
       "attendees": 5,
-      "image": "images/events/event_p02_img07.jpeg",
+      "image": "images/event_p02_img07.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -51,7 +51,7 @@
       "address": "305 E 4th St, Ste 100, Santa Ana, CA",
       "description": "No Halloween plans? Well, that's a grave mistake, darling. Skip the coffin-couch and join us for a night of frightful fun, fabulous food, and filmic fear. Costumes are strongly encouraged.",
       "attendees": 9,
-      "image": "images/events/event_p03_img04.jpeg",
+      "image": "images/event_p03_img04.jpeg",
       "category": "Holiday",
       "status": "past",
       "cancelled": false
@@ -65,7 +65,7 @@
       "address": "88 Fair Drive, Costa Mesa, CA",
       "description": "Meet at the entrance at 6:30 PM.",
       "attendees": 5,
-      "image": "images/events/event_p03_img06.jpeg",
+      "image": "images/event_p03_img06.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -79,7 +79,7 @@
       "address": "3503 South Harbor Boulevard, Santa Ana, CA",
       "description": "WELCOME TO EMO NIGHT BROOKLYN, A LATE NIGHT DJ BASED DANCE PARTY BLASTING ALL YOUR FAVORITE EMO AND POP PUNK JAMS.",
       "attendees": 6,
-      "image": "images/events/event_p03_img08.jpeg",
+      "image": "images/event_p03_img08.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -93,7 +93,7 @@
       "address": "201 East 4th Street, Santa Ana, CA",
       "description": "Supper Club - 4th Street Market @ 6:00PM. Food hall with a variety of yummy choices.",
       "attendees": 2,
-      "image": "images/events/event_p03_img09.jpeg",
+      "image": "images/event_p03_img09.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -107,7 +107,7 @@
       "address": "109 W Santa Fe Avenue, Placentia, CA",
       "description": "We'll be reading and discussing The Haunting of Hill House by Shirley Jackson.",
       "attendees": 4,
-      "image": "images/events/event_p04_img02.jpeg",
+      "image": "images/event_p04_img02.jpeg",
       "category": "Book Club",
       "status": "past",
       "cancelled": false
@@ -121,7 +121,7 @@
       "address": "1101 West McKinley Ave, Pomona, CA",
       "description": "Meet at the entrance at 7:30 PM.",
       "attendees": 3,
-      "image": "images/events/event_p04_img04.jpeg",
+      "image": "images/event_p04_img04.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -135,7 +135,7 @@
       "address": "1126 Queens Highway, Long Beach, CA",
       "description": "Meet at the entrance at 8:30 PM. DONT BE LATE! Parking takes a lot of time.",
       "attendees": 7,
-      "image": "images/events/event_p04_img05.jpeg",
+      "image": "images/event_p04_img05.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -149,7 +149,7 @@
       "address": "3101 West Harvard Street, Santa Ana, CA",
       "description": "Join us as we celebrate all things spooky, gory, and fun.",
       "attendees": 5,
-      "image": "images/events/event_p04_img27.jpeg",
+      "image": "images/event_p04_img27.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -163,7 +163,7 @@
       "address": "616 East 4th St., Santa Ana, CA",
       "description": "Come hang out and grab a drinking and get to know us. The space itself has beautiful ambiance and is right in the heart of Santa Ana.",
       "attendees": 22,
-      "image": "images/events/event_p05_img01.jpeg",
+      "image": "images/event_p05_img01.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -177,7 +177,7 @@
       "address": "305 East 4th St, Suite 200, Santa Ana, CA",
       "description": "Let's hang out grab a bite to eat and see Giallo classic, Suspiria by Italian horror maestro Dario Argento.",
       "attendees": 6,
-      "image": "images/events/event_p05_img03.jpeg",
+      "image": "images/event_p05_img03.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -191,7 +191,7 @@
       "address": "1566 W Lincoln Ave, Anaheim, CA",
       "description": "A themed Burlesque and Variety Show.",
       "attendees": 10,
-      "image": "images/events/event_p05_img05.jpeg",
+      "image": "images/event_p05_img05.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -205,7 +205,7 @@
       "address": "1875 Newport Blvd B245, Costa Mesa, CA",
       "description": "Hey sad girls and sad boys, the OG Emo Nite is coming to Costa Mesa!",
       "attendees": 1,
-      "image": "images/events/event_p05_img07.jpeg",
+      "image": "images/event_p05_img07.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -219,7 +219,7 @@
       "address": "1652 N Cherokee Ave, Los Angeles, CA",
       "description": "!!!COME RAGE WITH US!!!",
       "attendees": 8,
-      "image": "images/events/event_p06_img01.jpeg",
+      "image": "images/event_p06_img01.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -233,7 +233,7 @@
       "address": "4067 West Pico Boulevard, Los Angeles, CA",
       "description": "!!!COME RAGE WITH US!!!",
       "attendees": 8,
-      "image": "images/events/event_p06_img02.jpeg",
+      "image": "images/event_p06_img02.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -247,7 +247,7 @@
       "address": "109 W Santa Fe Avenue, Placentia, CA",
       "description": "We'll be discussing the Dead Zone by Stephen King. A psychological horror and science fiction thriller.",
       "attendees": 7,
-      "image": "images/events/event_p06_img04.jpeg",
+      "image": "images/event_p06_img04.jpeg",
       "category": "Book Club",
       "status": "past",
       "cancelled": false
@@ -261,7 +261,7 @@
       "address": "227 North Broadway, Santa Ana, CA",
       "description": "A monthly drawing event, blending illustration, socializing, and music.",
       "attendees": 3,
-      "image": "images/events/event_p06_img06.jpeg",
+      "image": "images/event_p06_img06.jpeg",
       "category": "Art/Craft",
       "status": "past",
       "cancelled": false
@@ -275,7 +275,7 @@
       "address": "1 South Granada Avenue, Long Beach, CA",
       "description": "Expect good company, ocean breezes, and perhaps a touch of existential dread (in the best way possible).",
       "attendees": 15,
-      "image": "images/events/event_p07_img01.jpeg",
+      "image": "images/event_p07_img01.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -289,7 +289,7 @@
       "address": "1530 S Disneyland Dr, Anaheim, CA",
       "description": "You're Summoned. To a night of darkwave, post-punk, and moody mayhem at House of Blues Anaheim.",
       "attendees": 3,
-      "image": "images/events/event_p07_img03.jpeg",
+      "image": "images/event_p07_img03.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -303,7 +303,7 @@
       "address": "Long Beach, CA",
       "description": "Darklings, misfits, and creatures of the night - heed the call! The Bat Brigade summons you for an evening on this most cursed night - Friday the 13th.",
       "attendees": 4,
-      "image": "images/events/event_p07_img04.jpeg",
+      "image": "images/event_p07_img04.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -317,7 +317,7 @@
       "address": "201 E 4th Street, Santa Ana, CA",
       "description": "Gather at 4th St Market next to parking for libations and chatter.",
       "attendees": 6,
-      "image": "images/events/event_p07_img06.jpeg",
+      "image": "images/event_p07_img06.jpeg",
       "category": "Art/Craft",
       "status": "past",
       "cancelled": false
@@ -331,7 +331,7 @@
       "address": "220 E 3rd Street, Santa Ana, CA",
       "description": "!!! COME RAGE WITH US !!!",
       "attendees": 5,
-      "image": "images/events/event_p08_img02.jpeg",
+      "image": "images/event_p08_img02.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -345,7 +345,7 @@
       "address": "201 E 4th Street, Santa Ana, CA",
       "description": "Oh hi, Mark. Come join in for a weird, fun time! Meet beforehand at 4th Street Market @ 8:30PM.",
       "attendees": 16,
-      "image": "images/events/event_p08_img04.jpeg",
+      "image": "images/event_p08_img04.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -359,7 +359,7 @@
       "address": "109 W Santa Fe Avenue, Placentia, CA",
       "description": "We'll be reading and discussing the graphic novel, From Hell by Alan Moore.",
       "attendees": 7,
-      "image": "images/events/event_p08_img06.jpeg",
+      "image": "images/event_p08_img06.jpeg",
       "category": "Book Club",
       "status": "past",
       "cancelled": false
@@ -373,7 +373,7 @@
       "address": "1490 S Anaheim Blvd, Anaheim, CA",
       "description": "!!!COME RAGE WITH US!!!",
       "attendees": 4,
-      "image": "images/events/event_p08_img07.jpeg",
+      "image": "images/event_p08_img07.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -387,7 +387,7 @@
       "address": "6801 Euclid St, Fountain Valley, CA",
       "description": "Dark Carnival Picnic. Enter... if you dare.",
       "attendees": 9,
-      "image": "images/events/event_p09_img02.jpeg",
+      "image": "images/event_p09_img02.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -401,7 +401,7 @@
       "address": "3300 Wilshire Blvd., Los Angeles, CA",
       "description": "Make sure check the meetup instructions at the bottom a couple days before the event for specific instructions on how to find us.",
       "attendees": 6,
-      "image": "images/events/event_p09_img04.jpeg",
+      "image": "images/event_p09_img04.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -415,7 +415,7 @@
       "address": "201 E 4th St, Santa Ana, CA",
       "description": "Supper Club 830PM - Meet at 4th St Market Food Hall.",
       "attendees": 4,
-      "image": "images/events/event_p09_img05.jpeg",
+      "image": "images/event_p09_img05.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -429,7 +429,7 @@
       "address": "616 East 4th St., Santa Ana, CA",
       "description": "The Horror Hounds Present: A Goth Meet & Greet. Darklings, misfits, and creatures of the night - heed the call!",
       "attendees": 12,
-      "image": "images/events/event_p09_img07.jpeg",
+      "image": "images/event_p09_img07.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -443,7 +443,7 @@
       "address": "666, Santa Ana, CA",
       "description": "I hope you all enjoyed my April Fools Joke, it was fun creating it. UNLEASH YOUR INNER CREATURE: A MASTERCLASS IN FANGS & WINGS.",
       "attendees": 11,
-      "image": "images/events/event_p10_img01.jpeg",
+      "image": "images/event_p10_img01.jpeg",
       "category": "Holiday",
       "status": "past",
       "cancelled": false
@@ -457,7 +457,7 @@
       "address": "201 E 4th St, Santa Ana, CA",
       "description": "We'll grab a table, lay down some butcher paper, and get crafty with some Kraft Werks.",
       "attendees": 8,
-      "image": "images/events/event_p10_img02.jpeg",
+      "image": "images/event_p10_img02.jpeg",
       "category": "Art/Craft",
       "status": "past",
       "cancelled": false
@@ -471,7 +471,7 @@
       "address": "201 E 4th Street, Santa Ana, CA",
       "description": "Supper Club 8PM - Meet at 4th St Market Food Hall. This event is cross posted at The Vampire Social Club.",
       "attendees": 14,
-      "image": "images/events/event_p10_img04.jpeg",
+      "image": "images/event_p10_img04.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -485,7 +485,7 @@
       "address": "511 E Santa Ana Blvd, Santa Ana, CA",
       "description": "We'll be reading and discussing the book The Croning by Laird Barron.",
       "attendees": 6,
-      "image": "images/events/event_p10_img06.jpeg",
+      "image": "images/event_p10_img06.jpeg",
       "category": "Book Club",
       "status": "past",
       "cancelled": false
@@ -499,7 +499,7 @@
       "address": "4067 W Pico Blvd, Los Angeles, CA",
       "description": "HEAR YE, CHILDREN OF THE NIGHT",
       "attendees": 3,
-      "image": "images/events/event_p02_img01.jpeg",
+      "image": "images/event_p02_img01.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -513,7 +513,7 @@
       "address": "201 E 4th Street, Santa Ana, CA",
       "description": "Park behind Frida Cinema. Gather at 4th St Market next to parking for libations and chatter.",
       "attendees": 9,
-      "image": "images/events/event_p11_img01.jpeg",
+      "image": "images/event_p11_img01.jpeg",
       "category": "Art/Craft",
       "status": "past",
       "cancelled": false
@@ -527,7 +527,7 @@
       "address": "3503 S. Harbor Blvd., Santa Ana, CA",
       "description": "The McCharmlys are kicking off another tour at Observatory OC in the main room!!",
       "attendees": 1,
-      "image": "images/events/event_p11_img04.jpeg",
+      "image": "images/event_p11_img04.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -541,7 +541,7 @@
       "address": "305 East 4th Street, Santa Ana, CA",
       "description": "If intending to go please purchase tickets now. The Frida sells out fast for these types of events.",
       "attendees": 5,
-      "image": "images/events/event_p11_img06.jpeg",
+      "image": "images/event_p11_img06.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -555,7 +555,7 @@
       "address": "20 City Blvd W #1, Orange, CA",
       "description": "You're Invited to a Horror Movie Night! Event is cross posted to The Vampire Social Club.",
       "attendees": 2,
-      "image": "images/events/event_p11_img08.jpeg",
+      "image": "images/event_p11_img08.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -569,7 +569,7 @@
       "address": "1566 W Lincoln Ave, Anaheim, CA",
       "description": "It's that time where we randomly decide we'll host a meet and greet! Hang out and we'll chat about spooky movies, cool music.",
       "attendees": 7,
-      "image": "images/events/event_p12_img02.jpeg",
+      "image": "images/event_p12_img02.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -583,7 +583,7 @@
       "address": "400 Disney Way, Anaheim, CA",
       "description": "You're Invited to a Horror Movie Night! Event is cross posted to The Vampire Social Club. Join us for a screening of Companion.",
       "attendees": 1,
-      "image": "images/events/event_p12_img04.jpeg",
+      "image": "images/event_p12_img04.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -597,7 +597,7 @@
       "address": "305 E 4th St, Santa Ana, CA",
       "description": "This event is SOLD OUT. People have been waiting ages for this movie to come out. Buy your tickets now.",
       "attendees": 1,
-      "image": "images/events/event_p12_img05.jpeg",
+      "image": "images/event_p12_img05.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -611,7 +611,7 @@
       "address": "220 E 3rd Street, Santa Ana, CA",
       "description": "!!!COME RAGE WITH US!!! Hang out and/or dance, its up to you!",
       "attendees": 7,
-      "image": "images/events/event_p12_img06.jpeg",
+      "image": "images/event_p12_img06.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -625,7 +625,7 @@
       "address": "201 E 4th St, Santa Ana, CA",
       "description": "We'll grab a table, lay down some butcher paper, and get crafty with some Kraft Werks.",
       "attendees": 5,
-      "image": "images/events/event_p13_img02.jpeg",
+      "image": "images/event_p13_img02.jpeg",
       "category": "Art/Craft",
       "status": "past",
       "cancelled": false
@@ -639,7 +639,7 @@
       "address": "305 E 4th St., Santa Ana, CA",
       "description": "Supper Club - We'll decide where to eat after the movie.",
       "attendees": 14,
-      "image": "images/events/event_p13_img03.jpeg",
+      "image": "images/event_p13_img03.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -653,7 +653,7 @@
       "address": "843 W 19th St, Costa Mesa, CA",
       "description": "$15 tickets at door. Crossposted at The Vampire Social Club.",
       "attendees": 4,
-      "image": "images/events/event_p13_img06.jpeg",
+      "image": "images/event_p13_img06.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -667,7 +667,7 @@
       "address": "305 E 4th St, Santa Ana, CA",
       "description": "This event is cross-posted to The Vampire Social Club. Join the Horror Hounds and Vampires for a night of frightful fun!",
       "attendees": 8,
-      "image": "images/events/event_p13_img07.jpeg",
+      "image": "images/event_p13_img07.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -681,7 +681,7 @@
       "address": "227 North Broadway, Santa Ana, CA",
       "description": "Starting location might change, so check before the meetup starts! Meet at Chapter One for libations and snacks.",
       "attendees": 6,
-      "image": "images/events/event_p14_img01.jpeg",
+      "image": "images/event_p14_img01.jpeg",
       "category": "Art/Craft",
       "status": "past",
       "cancelled": false
@@ -695,7 +695,7 @@
       "address": "12762 Main Street, Garden Grove, CA",
       "description": "Join us for TOXICITY: Tribute to System of a Down, where the music is loud, the vibes are dark, and the energy is electric.",
       "attendees": 4,
-      "image": "images/events/event_p14_img07.jpeg",
+      "image": "images/event_p14_img07.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -709,7 +709,7 @@
       "address": "3101 West Harvard Street, Santa Ana, CA",
       "description": "Buy your tickets now, because this always sells out!!!",
       "attendees": 11,
-      "image": "images/events/event_p14_img09.jpeg",
+      "image": "images/event_p14_img09.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -723,7 +723,7 @@
       "address": "Fountain Valley, CA",
       "description": "Join us for the 2nd annual pumpkin carving picnic. Bring a sharable snack or drink and possibly a chair or blanket.",
       "attendees": 9,
-      "image": "images/events/event_p14_img11.jpeg",
+      "image": "images/event_p14_img11.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -737,7 +737,7 @@
       "address": "305 East 4th St, Suite 200, Santa Ana, CA",
       "description": "Event: Come hang and grab a drink and a bite and watch 80's comedy horror gold.",
       "attendees": 4,
-      "image": "images/events/event_p15_img02.jpeg",
+      "image": "images/event_p15_img02.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -751,7 +751,7 @@
       "address": "511 E Santa Ana Blvd, Santa Ana, CA",
       "description": "We'll be reading and discussing Revival by Stephen King.",
       "attendees": 6,
-      "image": "images/events/event_p15_img04.jpeg",
+      "image": "images/event_p15_img04.jpeg",
       "category": "Book Club",
       "status": "past",
       "cancelled": false
@@ -765,7 +765,7 @@
       "address": "305 East 4th St, Suite 200, Santa Ana, CA",
       "description": "Let's grab a bite and a drink and watch The Brandon Lee classic, The Crow.",
       "attendees": 2,
-      "image": "images/events/event_p15_img06.jpeg",
+      "image": "images/event_p15_img06.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -779,7 +779,7 @@
       "address": "305 E. 4st Street, Santa Ana, CA",
       "description": "Meet at 4th Street Market at 730. Line up for movie at 815. Movie starts at 830. The blood-soaked saga of Art the Clown continues.",
       "attendees": 9,
-      "image": "images/events/event_p15_img08.jpeg",
+      "image": "images/event_p15_img08.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -793,7 +793,7 @@
       "address": "3101 W. Harvard St., Santa Ana, CA",
       "description": "Join us to kick off Spooky Season at the OC Heritage Museum in Santa Ana for the annual OC Creep It Real.",
       "attendees": 5,
-      "image": "images/events/event_p16_img01.jpeg",
+      "image": "images/event_p16_img01.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -807,7 +807,7 @@
       "address": "Santa Ana, CA",
       "description": "Are you ready to do the time warp again?",
       "attendees": 5,
-      "image": "images/events/event_p16_img03.jpeg",
+      "image": "images/event_p16_img03.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -821,7 +821,7 @@
       "address": "1566 W Lincoln Ave, Anaheim, CA",
       "description": "Come hang out. Show your face. Be amazing!",
       "attendees": 5,
-      "image": "images/events/event_p16_img05.jpeg",
+      "image": "images/event_p16_img05.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -835,7 +835,7 @@
       "address": "20 city blvd east, Orange, CA",
       "description": "Join us for a night of laughs and scares as we watch the hilarious zombie comedy Shaun of the Dead!",
       "attendees": 11,
-      "image": "images/events/event_p16_img07.jpeg",
+      "image": "images/event_p16_img07.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -849,7 +849,7 @@
       "address": "2210 East Orangewood Ave, Anaheim, CA",
       "description": "Golden Road Brewery in Anaheim is hosting a night market. Come hang out. They have food and beer and vendors and music.",
       "attendees": 19,
-      "image": "images/events/event_p17_img02.jpeg",
+      "image": "images/event_p17_img02.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -863,7 +863,7 @@
       "address": "511 E Santa Ana Blvd, Santa Ana, CA",
       "description": "We'll be discussing The Silent Patient by Alex Michealides.",
       "attendees": 5,
-      "image": "images/events/event_p17_img04.jpeg",
+      "image": "images/event_p17_img04.jpeg",
       "category": "Book Club",
       "status": "past",
       "cancelled": false
@@ -877,7 +877,7 @@
       "address": "1072 N. Armando St., Anaheim, CA",
       "description": "Come hang out. Bring board games if you have them.",
       "attendees": 5,
-      "image": "images/events/event_p17_img06.jpeg",
+      "image": "images/event_p17_img06.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -891,7 +891,7 @@
       "address": "3101 West Harvard Street, Santa Ana, CA",
       "description": "I am keeping this event up for those who are still attending. I am no longer hosting but please enjoy this event.",
       "attendees": 4,
-      "image": "images/events/event_p17_img07.jpeg",
+      "image": "images/event_p17_img07.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -905,7 +905,7 @@
       "address": "201 E 4th St, Santa Ana, CA",
       "description": "Attending the Horror Hounds Dance Party at The Frida for Stop Making Sense is like crashing a monster mash where the creatures of the night are getting down to the funky beats.",
       "attendees": 3,
-      "image": "images/events/event_p18_img05.jpeg",
+      "image": "images/event_p18_img05.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -919,7 +919,7 @@
       "address": "201 E 4th St, Santa Ana, CA",
       "description": "Supper Club - 4th Street Market @ 6:00PM. Food hall with a variety of yummy choices. Presented by Creepy AF.",
       "attendees": 9,
-      "image": "images/events/event_p18_img06.jpeg",
+      "image": "images/event_p18_img06.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -933,7 +933,7 @@
       "address": "Fountain Valley, CA",
       "description": "Welcome to Horror Hounds Art in the Park, where creativity meets creepiness! Join us for a spooktacular day of painting, collage making, drawing, coloring, and all things artsy.",
       "attendees": 15,
-      "image": "images/events/event_p18_img07.jpeg",
+      "image": "images/event_p18_img07.jpeg",
       "category": "Art/Craft",
       "status": "past",
       "cancelled": false
@@ -947,7 +947,7 @@
       "address": "511 E Santa Ana Blvd, Santa Ana, CA",
       "description": "Join us as we discuss Kindred by Octavia E. Butler.",
       "attendees": 7,
-      "image": "images/events/event_p18_img09.jpeg",
+      "image": "images/event_p18_img09.jpeg",
       "category": "Book Club",
       "status": "past",
       "cancelled": false
@@ -961,7 +961,7 @@
       "address": "12900 S Euclid St, Garden Grove, CA",
       "description": "We are The Horror Hounds. We provide a safe place for folks to be their authentic selves. We love horror, sci-fi and all things nerdy. Come hang with us.",
       "attendees": 28,
-      "image": "images/events/event_p19_img02.jpeg",
+      "image": "images/event_p19_img02.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -975,7 +975,7 @@
       "address": "201 E 4th St, Santa Ana, CA",
       "description": "Supper Club - 4th Street Market @ 6:30PM. Food hall with a variety of yummy choices. Presented by Creepy AF.",
       "attendees": 4,
-      "image": "images/events/event_p19_img04.jpeg",
+      "image": "images/event_p19_img04.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -989,7 +989,7 @@
       "address": "305 E. 4st Street, Santa Ana, CA",
       "description": "Hey there, zombie lovers! Join us for a night of brain-eating fun as we watch Dawn Of The Dead at The Frida Theater.",
       "attendees": 15,
-      "image": "images/events/event_p19_img06.jpeg",
+      "image": "images/event_p19_img06.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -1003,7 +1003,7 @@
       "address": "Fountain Valley, CA",
       "description": "Let's hang out outside enjoy some nice weather. Please bring food or drink.",
       "attendees": 18,
-      "image": "images/events/event_p19_img08.jpeg",
+      "image": "images/event_p19_img08.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -1017,7 +1017,7 @@
       "address": "NV, US",
       "description": "Part 2 of this epic offbeat roadtrip starts with cruising along what is known as the Extraterrestrial Highway, a 100+ mile alien-themed everything path.",
       "attendees": 2,
-      "image": "images/events/event_p20_img03.jpeg",
+      "image": "images/event_p20_img03.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -1031,7 +1031,7 @@
       "address": "4455 Paradise Rd, Las Vegas, NV",
       "description": "Part 1 of this epic offbeat roadtrip kicks off with a performance triple-hitter by Gary Numan, MINISTRY, and Front Line Assembly.",
       "attendees": 2,
-      "image": "images/events/event_p20_img04.jpeg",
+      "image": "images/event_p20_img04.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -1045,7 +1045,7 @@
       "address": "109 W Santa Fe Avenue, Placentia, CA",
       "description": "Welcome to our book club! For this session we'll be discussing What Moves the Dead by T. Kingfisher.",
       "attendees": 12,
-      "image": "images/events/event_p20_img06.jpeg",
+      "image": "images/event_p20_img06.jpeg",
       "category": "Book Club",
       "status": "past",
       "cancelled": false
@@ -1059,7 +1059,7 @@
       "address": "3101 W. Harvard St., Santa Ana, CA",
       "description": "Step right up, folks! We've got a bone-chilling invitation for you!",
       "attendees": 16,
-      "image": "images/events/event_p21_img03.jpeg",
+      "image": "images/event_p21_img03.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -1073,7 +1073,7 @@
       "address": "1702 Fairhaven Ave., Santa Ana, CA",
       "description": "Join us for some sketching in Fairview Cemetery. Bring art supplies and paper. After let's hang in downtown Santa Ana.",
       "attendees": 10,
-      "image": "images/events/event_p21_img04.jpeg",
+      "image": "images/event_p21_img04.jpeg",
       "category": "Art/Craft",
       "status": "past",
       "cancelled": false
@@ -1087,7 +1087,7 @@
       "address": "305 East 4th Street, Santa Ana, CA",
       "description": "EVENT IS SOLD OUT. STANDBY MAY BE AVAILABLE. Step right up and join us for Repo! The Genetic Opera.",
       "attendees": 11,
-      "image": "images/events/event_p21_img06.jpeg",
+      "image": "images/event_p21_img06.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -1101,7 +1101,7 @@
       "address": "305 E 4th Street, Santa Ana, CA",
       "description": "Horror Hounds Unleashed: Join Us for Dinner and An American Werewolf in London! 6pm: We'll meet at 4th St Market.",
       "attendees": 5,
-      "image": "images/events/event_p21_img08.jpeg",
+      "image": "images/event_p21_img08.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -1115,7 +1115,7 @@
       "address": "109 W Santa Fe Avenue, Placentia, CA",
       "description": "Lovecraft Country #1 By Matt Ruff. The critically acclaimed cult novelist makes visceral the terrors.",
       "attendees": 8,
-      "image": "images/events/event_p22_img07.jpeg",
+      "image": "images/event_p22_img07.jpeg",
       "category": "Book Club",
       "status": "past",
       "cancelled": false
@@ -1129,7 +1129,7 @@
       "address": "3503 S Harbor Blvd, Santa Ana, CA",
       "description": "Hang out at Emo Night! This is Emo Night Brooklyn, a long running Emo Party.",
       "attendees": 3,
-      "image": "images/events/event_p22_img08.jpeg",
+      "image": "images/event_p22_img08.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -1143,7 +1143,7 @@
       "address": "305 E 4th Street, Santa Ana, CA",
       "description": "Please join us on the eve of Christmas Eve, Christmas Eve Eve if you will, at the world famous Frida Theater to watch...",
       "attendees": 7,
-      "image": "images/events/event_p22_img10.jpeg",
+      "image": "images/event_p22_img10.jpeg",
       "category": "Holiday",
       "status": "past",
       "cancelled": false
@@ -1157,7 +1157,7 @@
       "address": "Euclid St & Heil Ave, Fountain Valley, CA",
       "description": "'Tis the season to be spooky! We cordially invite you to our spine-chilling Horror Hounds Christmas Picnic.",
       "attendees": 20,
-      "image": "images/events/event_p22_img11.jpeg",
+      "image": "images/event_p22_img11.jpeg",
       "category": "Holiday",
       "status": "past",
       "cancelled": false
@@ -1171,7 +1171,7 @@
       "address": "201 N Broadway, Santa Ana, CA",
       "description": "Santa Ana's Nightmare before Christmas is a small side event during Downtown Santa Ana's Art Walk.",
       "attendees": 13,
-      "image": "images/events/event_p23_img04.jpeg",
+      "image": "images/event_p23_img04.jpeg",
       "category": "Art/Craft",
       "status": "past",
       "cancelled": false
@@ -1185,7 +1185,7 @@
       "address": "810 Meridian Ave, South Pasadena, CA",
       "description": "More info will be shared closer to event.",
       "attendees": 6,
-      "image": "images/events/event_p23_img05.jpeg",
+      "image": "images/event_p23_img05.jpeg",
       "category": "Art/Craft",
       "status": "past",
       "cancelled": false
@@ -1199,7 +1199,7 @@
       "address": "#49, Huntington Beach, CA",
       "description": "I am thrilled to extend an invitation to you for an electrifying live show featuring The Flashpants.",
       "attendees": 14,
-      "image": "images/events/event_p23_img07.jpeg",
+      "image": "images/event_p23_img07.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -1213,7 +1213,7 @@
       "address": "3101 West Harvard Street, Santa Ana, CA",
       "description": "Come on down for a frightfully, delightful evening with your favorite Horror Hounds. As we awaken from our Halloween...",
       "attendees": 12,
-      "image": "images/events/event_p23_img08.jpeg",
+      "image": "images/event_p23_img08.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -1227,7 +1227,7 @@
       "address": "20 City Boulevard West, Orange, CA",
       "description": "Greetings, my beloved ghouls and goblins! As we brace ourselves for the spine-chilling holiday season, I summon you to partake in a frightful gathering.",
       "attendees": 13,
-      "image": "images/events/event_p24_img03.jpeg",
+      "image": "images/event_p24_img03.jpeg",
       "category": "Holiday",
       "status": "past",
       "cancelled": false
@@ -1241,7 +1241,7 @@
       "address": "740 S Broadway, Los Angeles, CA",
       "description": "Join us for an epic festival night of darkwave, post punk, industrial, synth pop and more!",
       "attendees": 4,
-      "image": "images/events/event_p24_img04.jpeg",
+      "image": "images/event_p24_img04.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -1255,7 +1255,7 @@
       "address": "109 W Santa Fe Avenue, Placentia, CA",
       "description": "We'll be meeting to discuss the book, The Teleportation Accident by Ned Beauman.",
       "attendees": 6,
-      "image": "images/events/event_p24_img06.jpeg",
+      "image": "images/event_p24_img06.jpeg",
       "category": "Book Club",
       "status": "past",
       "cancelled": false
@@ -1269,7 +1269,7 @@
       "address": "525 E Broadway, Long Beach, CA",
       "description": "Meet us at Mezcalero in Long Beach for Costume Karaoke Night!",
       "attendees": 7,
-      "image": "images/events/event_p24_img07.jpeg",
+      "image": "images/event_p24_img07.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -1283,7 +1283,7 @@
       "address": "16801 Euclid St, Fountain Valley, CA",
       "description": "Alright daydream believers, I'm in the NE corner of the park by the lake.",
       "attendees": 18,
-      "image": "images/events/event_p25_img05.jpeg",
+      "image": "images/event_p25_img05.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -1297,7 +1297,7 @@
       "address": "224 E 3rd St, Santa Ana, CA",
       "description": "Obsidivna Darkwave Nights celebrates Halloween and Dormence's Birthday!! Join us for a night of Dark-Synth, Post Punk, Darkwave, Industrial & EBM.",
       "attendees": 3,
-      "image": "images/events/event_p25_img06.jpeg",
+      "image": "images/event_p25_img06.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -1311,7 +1311,7 @@
       "address": "Los Angeles, CA",
       "description": "Let's celebrate the week before Halloween in true hedonistic fashion, an underground goth club party. This lineup is unreal!",
       "attendees": 5,
-      "image": "images/events/event_p25_img08.jpeg",
+      "image": "images/event_p25_img08.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -1325,7 +1325,7 @@
       "address": "Santa Ana, CA",
       "description": "Join the Hounds as we engage in burgers and brews then sit in terror with the movie that is timeless in scaring the begeeebus out of us, The Exorcist.",
       "attendees": 10,
-      "image": "images/events/event_p25_img10.jpeg",
+      "image": "images/event_p25_img10.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -1339,7 +1339,7 @@
       "address": "14600 Baron Dr, Eastvale, CA",
       "description": "Boils and ghouls, let's continue the Inland Empire fun by wandering over to Coffin Creek. This old school cult classic haunt is in its 16th year.",
       "attendees": 2,
-      "image": "images/events/event_p26_img04.jpeg",
+      "image": "images/event_p26_img04.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -1353,7 +1353,7 @@
       "address": "97 Sixth St, Norco, CA",
       "description": "If you are looking for a fun memorable hike in SoCal, right in time for Halloween season, look no further than Pumpkin Rock!",
       "attendees": 3,
-      "image": "images/events/event_p26_img05.jpeg",
+      "image": "images/event_p26_img05.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -1367,7 +1367,7 @@
       "address": "401 Shoreline Village Dr, Long Beach, CA",
       "description": "Witches, ghouls, goblins, vampires, werewolves, and all creatures of the night. Join us as we embark on a journey through Long Beach upon our trusted brooms, steeds, or ehhh... bikes.",
       "attendees": 15,
-      "image": "images/events/event_p26_img07.jpeg",
+      "image": "images/event_p26_img07.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -1381,7 +1381,7 @@
       "address": "22355 Pacific Coast Hwy, Huntington Beach, CA",
       "description": "Alright heathens, vamps, witches, goths, metalheadz, and other assorted oddities, we're having a bonfire & potluck to close out the summer and observe the advent of Autumn.",
       "attendees": 20,
-      "image": "images/events/event_p26_img08.jpeg",
+      "image": "images/event_p26_img08.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -1395,7 +1395,7 @@
       "address": "140 E Santa Fe Ave, Fullerton, CA",
       "description": "Time for another art walk guys! This time the format will be a little different. We'll meet at XZBT for the EVILUTION...",
       "attendees": 4,
-      "image": "images/events/event_p27_img01.jpeg",
+      "image": "images/event_p27_img01.jpeg",
       "category": "Art/Craft",
       "status": "past",
       "cancelled": false
@@ -1409,7 +1409,7 @@
       "address": "3101 West Harvard Street, Santa Ana, CA",
       "description": "All set for Summer Camp? Creep It Real OC. Tickets $17.",
       "attendees": 22,
-      "image": "images/events/event_p27_img03.jpeg",
+      "image": "images/event_p27_img03.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -1423,7 +1423,7 @@
       "address": "1490 S Anaheim Blvd, Anaheim, CA",
       "description": "Celebrate Labor Day weekend with your fellow goths at OC's longest running goth/industrial nightclub. Coldwave, Darkwave, Industrial, Goth, Dark Electro.",
       "attendees": 15,
-      "image": "images/events/event_p27_img05.jpeg",
+      "image": "images/event_p27_img05.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -1437,7 +1437,7 @@
       "address": "201 E. MacArthur Blvd., Santa Ana, CA",
       "description": "This is a collab MeetUp event with the Vampire Social Club. Bring your spending money for this double-feature of arts shopping.",
       "attendees": 17,
-      "image": "images/events/event_p27_img07.jpeg",
+      "image": "images/event_p27_img07.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -1451,7 +1451,7 @@
       "address": "1400 E Sycamore St, Anaheim, CA",
       "description": "Hey all, getting folks together to sit, sketch and be creative...in a place of eternal rest. So come one, come all! Please bring your own art supplies.",
       "attendees": 10,
-      "image": "images/events/event_p28_img04.jpeg",
+      "image": "images/event_p28_img04.jpeg",
       "category": "Art/Craft",
       "status": "past",
       "cancelled": false
@@ -1465,7 +1465,7 @@
       "address": "305 E 4th St #200, Santa Ana, CA",
       "description": "Attention, Hounds! Prepare yourselves for a spine-chilling Friday night extravaganza alongside the creatures of the night as us Hounds unite with the Vampires Social...",
       "attendees": 11,
-      "image": "images/events/event_p28_img06.jpeg",
+      "image": "images/event_p28_img06.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -1479,7 +1479,7 @@
       "address": "201 N Broadway, Santa Ana, CA",
       "description": "We're cross-posting with the Horror Hounds & Vampire Social Club & Creatures of the Night.",
       "attendees": 20,
-      "image": "images/events/event_p28_img07.jpeg",
+      "image": "images/event_p28_img07.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -1493,7 +1493,7 @@
       "address": "109 W Santa Fe Avenue, Placentia, CA",
       "description": "We'll be discussing the book The Indifferent Stars Above by Daniel James Brown.",
       "attendees": 5,
-      "image": "images/events/event_p28_img09.jpeg",
+      "image": "images/event_p28_img09.jpeg",
       "category": "Book Club",
       "status": "past",
       "cancelled": false
@@ -1507,7 +1507,7 @@
       "address": "201 E 4th St, Santa Ana, CA",
       "description": "We're cross-posting with The Wes Anderson Squad & Vampire Social Club. Here's the scavenger hunt list for the walkabout.",
       "attendees": 16,
-      "image": "images/events/event_p29_img03.jpeg",
+      "image": "images/event_p29_img03.jpeg",
       "category": "Art/Craft",
       "status": "past",
       "cancelled": false
@@ -1521,7 +1521,7 @@
       "address": "121 W 4th St, Long Beach, CA",
       "description": "A casual lunch for a good time to meet and greet new members. Come on down to Long Beach and grab a slice of apocalyptic pizza and a beer.",
       "attendees": 9,
-      "image": "images/events/event_p29_img04.jpeg",
+      "image": "images/event_p29_img04.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -1535,7 +1535,7 @@
       "address": "224 E 3rd St, Santa Ana, CA",
       "description": "A night of Dark-Synth, Post Punk, Darkwave, Industrial & EBM at OC's coolest underground nightspot!",
       "attendees": 4,
-      "image": "images/events/event_p29_img06.jpeg",
+      "image": "images/event_p29_img06.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -1549,7 +1549,7 @@
       "address": "305 E. 4st Street, Santa Ana, CA",
       "description": "Hey guys. I am sorry to announce that Joseph and I won't be able to attend this event.",
       "attendees": 4,
-      "image": "images/events/event_p29_img08.jpeg",
+      "image": "images/event_p29_img08.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -1563,7 +1563,7 @@
       "address": "Santa Ana, CA",
       "description": "EMO Night - July 8 with a live show by EMO Kids + special guest DJ Marko DeSantis of Sugarcult & DJ Sad Foo of EMO Prom.",
       "attendees": 2,
-      "image": "images/events/event_p30_img04.jpeg",
+      "image": "images/event_p30_img04.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -1577,7 +1577,7 @@
       "address": "200 Aquarium Way, Long Beach, CA",
       "description": "Ticket's $20 at gate or online. Take ye a wentch for 15 shillings! Join us, pirate hounds and...",
       "attendees": 60,
-      "image": "images/events/event_p30_img05.jpeg",
+      "image": "images/event_p30_img05.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -1591,7 +1591,7 @@
       "address": "1490 S Anaheim Blvd, Anaheim, CA",
       "description": "Continue the 4th of July weekend festivities with your fellow goths at OC's longest running goth/industrial nightclub. No work on Monday!",
       "attendees": 4,
-      "image": "images/events/event_p30_img07.jpeg",
+      "image": "images/event_p30_img07.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -1605,7 +1605,7 @@
       "address": "3300 N State College Blvd, Fullerton, CA",
       "description": "To see the next best thing next to Moz himself. Yes, that's right...",
       "attendees": 4,
-      "image": "images/events/event_p30_img09.jpeg",
+      "image": "images/event_p30_img09.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -1619,7 +1619,7 @@
       "address": "305 E 4th St #100, Santa Ana, CA",
       "description": "Get tickets here!",
       "attendees": 8,
-      "image": "images/events/event_p31_img02.jpeg",
+      "image": "images/event_p31_img02.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -1633,7 +1633,7 @@
       "address": "Los Angeles, CA",
       "description": "Join the Scooby Doo Crew for some fun vampire skating!! Skate Oddity is a post-punk/dark 80s/synth skate pop-up rink. This June 17th, they are running a vampire theme!",
       "attendees": 3,
-      "image": "images/events/event_p31_img04.jpeg",
+      "image": "images/event_p31_img04.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -1647,7 +1647,7 @@
       "address": "109 W Santa Fe Avenue, Placentia, CA",
       "description": "Our second Horror Hounds book club book will be Horrorstor by Grady Hendrix. Something strange is happening at the Orsk furniture superstore...",
       "attendees": 6,
-      "image": "images/events/event_p31_img06.jpeg",
+      "image": "images/event_p31_img06.jpeg",
       "category": "Book Club",
       "status": "past",
       "cancelled": false
@@ -1661,7 +1661,7 @@
       "address": "224 E 3rd St, Santa Ana, CA",
       "description": "A night of Dark-Synth, Post Punk, Darkwave, Industrial & EBM at OC's coolest underground nightspot! Live Performances by: Blood Handsome.",
       "attendees": 4,
-      "image": "images/events/event_p31_img08.jpeg",
+      "image": "images/event_p31_img08.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -1675,7 +1675,7 @@
       "address": "CA",
       "description": "Let's hang out at the beach. Let's bring some grub, blankets, and other stuff to have a yummy and fun day at Bolsa Chica state beach.",
       "attendees": 11,
-      "image": "images/events/event_p32_img03.jpeg",
+      "image": "images/event_p32_img03.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -1689,7 +1689,7 @@
       "address": "9015 Sunset Blvd, West Hollywood, CA",
       "description": "Are you ready to experience Metal Mayhem Friday's? Don't miss this intense show with Nightmare, an Alice Cooper tribute band.",
       "attendees": 1,
-      "image": "images/events/event_p32_img04.jpeg",
+      "image": "images/event_p32_img04.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -1703,7 +1703,7 @@
       "address": "CA",
       "description": "Join me on a short 2-mile (maybe more) down-and-back hike to see some red rocks. Parking is relatively easy.",
       "attendees": 7,
-      "image": "images/events/event_p32_img05.jpeg",
+      "image": "images/event_p32_img05.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -1717,7 +1717,7 @@
       "address": "3300 N State College Blvd, Fullerton, CA",
       "description": "Join the Scooby Gang for a relaxed afternoon BBQ in the park.",
       "attendees": 11,
-      "image": "images/events/event_p32_img07.jpeg",
+      "image": "images/event_p32_img07.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -1731,7 +1731,7 @@
       "address": "224 E 3rd St, Santa Ana, CA",
       "description": "A night of Dark-Synth, Post Punk, Darkwave, Industrial & EBM at OC's coolest underground nightspot! Live Performances by: Frozen Charlottes.",
       "attendees": 7,
-      "image": "images/events/event_p33_img05.jpeg",
+      "image": "images/event_p33_img05.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -1745,7 +1745,7 @@
       "address": "17851 Pacific Coast Hwy, Huntington Beach, CA",
       "description": "We are set up in the first lot, make a right when you come in to park, pass the Lifeguard Headquarters. Between towers 21 and 22.",
       "attendees": 11,
-      "image": "images/events/event_p33_img07.jpeg",
+      "image": "images/event_p33_img07.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -1759,7 +1759,7 @@
       "address": "2915 Red Hill Ave g101, Costa Mesa, CA",
       "description": "Come hang out and/or sing karaoke with us. I'll probably sing a The Cure song myself, but spookiness is not a requirement.",
       "attendees": 3,
-      "image": "images/events/event_p33_img08.jpeg",
+      "image": "images/event_p33_img08.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -1773,7 +1773,7 @@
       "address": "3503 South Harbor Blvd, Santa Ana, CA",
       "description": "A delightful evening of BLACK METAL!!!! Perennial eco warriors, Wolves in the Throne Room will be playing with Hulder.",
       "attendees": 1,
-      "image": "images/events/event_p33_img10.jpeg",
+      "image": "images/event_p33_img10.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -1787,7 +1787,7 @@
       "address": "3040 Sunset Blvd, Los Angeles, CA",
       "description": "Dare to come out for the Antisocial Party, a monthly goth fetish special event presented by Dystopia Inc.",
       "attendees": 5,
-      "image": "images/events/event_p34_img02.jpeg",
+      "image": "images/event_p34_img02.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -1801,7 +1801,7 @@
       "address": "109 W Santa Fe Avenue, Placentia, CA",
       "description": "Join us for a discussion of Stephen King's newest book, Fairy Tale, for the first ever meeting of the Horror Hounds book club.",
       "attendees": 5,
-      "image": "images/events/event_p34_img06.jpeg",
+      "image": "images/event_p34_img06.jpeg",
       "category": "Book Club",
       "status": "past",
       "cancelled": false
@@ -1815,7 +1815,7 @@
       "address": "224 E 3rd St, Santa Ana, CA",
       "description": "A night of Dark-Synth, Post Punk, Darkwave, Industrial & EBM at OC's coolest underground nightspot! Live Performances by: Hallows, Losses, and Void Palace.",
       "attendees": 3,
-      "image": "images/events/event_p34_img08.jpeg",
+      "image": "images/event_p34_img08.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -1829,7 +1829,7 @@
       "address": "15501 E Arrow Highway, Irwindale, CA",
       "description": "Cash only event. Good mistresses and masters! Hail and well met! Pack your steins, sheathe your swords and push up them bosoms (or not)...",
       "attendees": 14,
-      "image": "images/events/event_p34_img09.jpeg",
+      "image": "images/event_p34_img09.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -1843,7 +1843,7 @@
       "address": "1001 South Lemon Street, Fullerton, CA",
       "description": "Alrighty, tickets are now on sale. We'll be seeing the 730pm show at AMC Fullerton.",
       "attendees": 10,
-      "image": "images/events/event_p35_img07.jpeg",
+      "image": "images/event_p35_img07.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -1857,7 +1857,7 @@
       "address": "3300 N State College Blvd, Fullerton, CA",
       "description": "Join me for a fun bbq in the park.",
       "attendees": 15,
-      "image": "images/events/event_p35_img09.jpeg",
+      "image": "images/event_p35_img09.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -1871,7 +1871,7 @@
       "address": "448 S Main St, Los Angeles, CA",
       "description": "Embark on a brutal journey of terror with Morbid Angel's show, at the classic Regent theater in LA. It's going to be epic!",
       "attendees": 3,
-      "image": "images/events/event_p35_img10.jpeg",
+      "image": "images/event_p35_img10.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -1885,7 +1885,7 @@
       "address": "224 E 3rd St, Santa Ana, CA",
       "description": "Come out and support these indie goth artists at OC's coolest underground nightspot. $15.00 pre sale tickets.",
       "attendees": 1,
-      "image": "images/events/event_p35_img11.jpeg",
+      "image": "images/event_p35_img11.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -1899,7 +1899,7 @@
       "address": "17847 Lakewood Blvd., Bellflower, CA",
       "description": "TBD. Trying to get a feel of how many people would be interested in an 80's New Wave Karaoke night.",
       "attendees": 3,
-      "image": "images/events/event_p36_img04.jpeg",
+      "image": "images/event_p36_img04.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -1913,7 +1913,7 @@
       "address": "305 E 4th St, Santa Ana, CA",
       "description": "The MeetUp event y'all have been waiting for....Rocky Horror Picture Show at the legendary Frida Theater!!!",
       "attendees": 7,
-      "image": "images/events/event_p36_img05.jpeg",
+      "image": "images/event_p36_img05.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -1927,7 +1927,7 @@
       "address": "121 W 4th St, Long Beach, CA",
       "description": "Come hang out in Long Beach for a gothic pizza party at the apocalyptic bar, arcade, and pizza place.",
       "attendees": 3,
-      "image": "images/events/event_p36_img06.jpg",
+      "image": "images/event_p36_img06.jpg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -1941,7 +1941,7 @@
       "address": "400 W Disney Way, Anaheim, CA",
       "description": "Join in and have some fun with viewing Cocaine Bear! This movie is loosely based on a true story that...",
       "attendees": 12,
-      "image": "images/events/event_p36_img08.jpeg",
+      "image": "images/event_p36_img08.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -1955,7 +1955,7 @@
       "address": "2200 E Katella Ave, Anaheim, CA",
       "description": "Someone once said that anything worth doing is worth doing twice. So, Metalheads, 2023 kicks off with a brand-new round of the finest thrash and heavy metal acts.",
       "attendees": 1,
-      "image": "images/events/event_p37_img05.jpeg",
+      "image": "images/event_p37_img05.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -1969,7 +1969,7 @@
       "address": "Los Angeles, CA",
       "description": "You are invited to a sexy secret after hours affair. Join your fellow horror hounds for this risque Truth or Dare Masquerade party.",
       "attendees": 13,
-      "image": "images/events/event_p37_img06.jpeg",
+      "image": "images/event_p37_img06.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -1983,7 +1983,7 @@
       "address": "6757 Hollywood Blvd., Los Angeles, CA",
       "description": "Hey sickos, wanna join us for the Medieval Torture Museum? We are the largest interactive historical museum in the U.S., occupying more than 6,000 square feet.",
       "attendees": 25,
-      "image": "images/events/event_p37_img08.jpeg",
+      "image": "images/event_p37_img08.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -1997,7 +1997,7 @@
       "address": "224 E 3rd St, Santa Ana, CA",
       "description": "Come out and support this trio of gloom at OC's coolest underground nightspot. $20.00 tickets.",
       "attendees": 1,
-      "image": "images/events/event_p37_img10.jpeg",
+      "image": "images/event_p37_img10.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -2011,7 +2011,7 @@
       "address": "305 E 4th St, Santa Ana, CA",
       "description": "Hey hounds. Come hang out for an evening of pizza and a horror flick playing at the historical Frida Theater in downtown Santa Ana. Meeting for pizza first at 6pm at Loosies Pizza.",
       "attendees": 15,
-      "image": "images/events/event_p38_img06.jpg",
+      "image": "images/event_p38_img06.jpg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -2025,7 +2025,7 @@
       "address": "6202 Santa Monica Blvd, Los Angeles, CA",
       "description": "Make way for 2023 and celebrate New Year's Eve the cool way. Goths know how to party! Playing the best in dark wave, industrial, shoe gaze, goth.",
       "attendees": 6,
-      "image": "images/events/event_p38_img07.jpeg",
+      "image": "images/event_p38_img07.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -2039,7 +2039,7 @@
       "address": "843 W 19th St, Costa Mesa, CA",
       "description": "Venture out on Friyaay for some drinks, good times and live music. On this night, local 90's tribute band Sega Genecide will be playing.",
       "attendees": 2,
-      "image": "images/events/event_p38_img08.jpeg",
+      "image": "images/event_p38_img08.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -2053,7 +2053,7 @@
       "address": "604 E Dyer Rd, Santa Ana, CA",
       "description": "RUINFEST!!! Come headbang with us at SoCal's most extreme underground metal scene. This year's lineup is massive and not to be missed!",
       "attendees": 2,
-      "image": "images/events/event_p38_img09.jpeg",
+      "image": "images/event_p38_img09.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -2067,7 +2067,7 @@
       "address": "717 Dunn Way, Placentia, CA",
       "description": "Come one come all. Bring your favorite board games. Let's hang and chat and have a good time.",
       "attendees": 2,
-      "image": "images/events/event_p39_img07.jpeg",
+      "image": "images/event_p39_img07.jpeg",
       "category": "Holiday",
       "status": "past",
       "cancelled": false
@@ -2081,7 +2081,7 @@
       "address": "241 S Anaheim Blvd, Anaheim, CA",
       "description": "Hey gang! Join me for a fun afternoon at Muzeo Museum in Anaheim. Specifically for the Harry Houdini exhibit! Tickets are $10.",
       "attendees": 15,
-      "image": "images/events/event_p39_img08.jpeg",
+      "image": "images/event_p39_img08.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -2095,7 +2095,7 @@
       "address": "Santa Ana, CA",
       "description": "Escape the holiday family madness, dance off all that Thanksgiving turkey, and join me for the coolest Black Friday dark electro event.",
       "attendees": 3,
-      "image": "images/events/event_p39_img10.jpeg",
+      "image": "images/event_p39_img10.jpeg",
       "category": "Goth Night",
       "status": "past",
       "cancelled": false
@@ -2109,7 +2109,7 @@
       "address": "1944 N Placentia Ave, Fullerton, CA",
       "description": "Yummy bbq and yummy drinks.",
       "attendees": 5,
-      "image": "images/events/event_p39_img12.jpeg",
+      "image": "images/event_p39_img12.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2123,7 +2123,7 @@
       "address": "401-435 Shoreline Village Dr, Long Beach, CA",
       "description": "This event is a ton of fun. We attended a few years in the BC. Live performances, food, dranks, and zombies.",
       "attendees": 26,
-      "image": "images/events/event_p40_img21.jpeg",
+      "image": "images/event_p40_img21.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -2137,7 +2137,7 @@
       "address": "305 E 4th St, Santa Ana, CA",
       "description": "Dinner and drinks at 6pm at Wursthaus then Halloween III Season of the Witch at the Frida at 730pm.",
       "attendees": 4,
-      "image": "images/events/event_p40_img22.jpeg",
+      "image": "images/event_p40_img22.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -2151,7 +2151,7 @@
       "address": "615 S Broadway, Los Angeles, CA",
       "description": "Join us for an epic festival night of darkwave, post punk, industrial, synth pop and more! Created partly as an excuse to see all our favorite bands at...",
       "attendees": 2,
-      "image": "images/events/event_p40_img24.jpeg",
+      "image": "images/event_p40_img24.jpeg",
       "category": "Live Show",
       "status": "past",
       "cancelled": false
@@ -2165,7 +2165,7 @@
       "address": "8039 Beach Blvd, Buena Park, CA",
       "description": "Hey ghouls and hounds. Some members have been interested in the Boo-Fet that...",
       "attendees": 8,
-      "image": "images/events/event_p40_img25.jpeg",
+      "image": "images/event_p40_img25.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -2179,7 +2179,7 @@
       "address": "7561 Center Ave #50, Huntington Beach, CA",
       "description": "Join us for Oktoberfest at Old World Huntington Beach, Orange County's biggest party since 1978! Prost!!",
       "attendees": 3,
-      "image": "images/events/event_p41_img01.jpeg",
+      "image": "images/event_p41_img01.jpeg",
       "category": "Holiday",
       "status": "past",
       "cancelled": false
@@ -2193,7 +2193,7 @@
       "address": "2500 N. Hollywood Way, Burbank, CA",
       "description": "Join us for a day of all things horror at Son Of Monsterpalooza, a horror convention.",
       "attendees": 22,
-      "image": "images/events/event_p41_img03.jpeg",
+      "image": "images/event_p41_img03.jpeg",
       "category": "Festival",
       "status": "past",
       "cancelled": false
@@ -2207,7 +2207,7 @@
       "address": "201 East 4th Street, Santa Ana, CA",
       "description": "Hey gang. It's my birthday and what could be a better way to celebrate other than some great food.",
       "attendees": 4,
-      "image": "images/events/event_p41_img05.jpeg",
+      "image": "images/event_p41_img05.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -2221,7 +2221,7 @@
       "address": "112 E Commonwealth Ave, Fullerton, CA",
       "description": "This tour date is now sold out. Stay tuned for future ghost walk tours.",
       "attendees": 9,
-      "image": "images/events/event_p41_img06.jpeg",
+      "image": "images/event_p41_img06.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -2235,7 +2235,7 @@
       "address": "717 Dunn Way, Placentia, CA",
       "description": "Hey, gang sorry for the late notice. A lot has been happening in life lately. However, thought it would be neat to have the band get back together.",
       "attendees": 4,
-      "image": "images/events/event_p42_img01.jpeg",
+      "image": "images/event_p42_img01.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2249,7 +2249,7 @@
       "address": "20 City Boulevard West, Orange, CA",
       "description": "Howdy Hounds! The Spielberg's classic hit, Jaws is being re-released! Jaws will be showing this Labor Day weekend.",
       "attendees": 5,
-      "image": "images/events/event_p42_img03.jpeg",
+      "image": "images/event_p42_img03.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -2263,7 +2263,7 @@
       "address": "1211 N Las Brisas St, Anaheim, CA",
       "description": "Lets get spooky at Phantom Ales. Indulge in delightfully spooky pizza. Bring a friend and a boardgame.",
       "attendees": 7,
-      "image": "images/events/event_p42_img04.jpeg",
+      "image": "images/event_p42_img04.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2277,7 +2277,7 @@
       "address": "717 Dunn Way, Placentia, CA",
       "description": "Let's get weird. Or let's get normal. Whichever. But let's hang out. I haven't done these for a while and miss y'all.",
       "attendees": 7,
-      "image": "images/events/event_p43_img01.jpeg",
+      "image": "images/event_p43_img01.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2291,7 +2291,7 @@
       "address": "305 E 4th St STE 200, Santa Ana, CA",
       "description": "Hey gang, let's get together and drink some beer, eat some food at Native Son and watch a Lynch classic. It's David Lynch month at the Frida.",
       "attendees": 2,
-      "image": "images/events/event_p43_img02.jpeg",
+      "image": "images/event_p43_img02.jpeg",
       "category": "Movie Night",
       "status": "past",
       "cancelled": false
@@ -2305,7 +2305,7 @@
       "address": "1275 N Berkeley Ave, Fullerton, CA",
       "description": "Hey join me for a stroll on the Fullerton Loop. I typically like to go 3-4 miles, though I am flexible. Bring lots of water and some snacks.",
       "attendees": 4,
-      "image": "images/events/event_p43_img04.jpeg",
+      "image": "images/event_p43_img04.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -2319,7 +2319,7 @@
       "address": "270 S Clementine St, Anaheim, CA",
       "description": "Hey gang let's meet up and have a few drinks at a cool tiki bar. This bar is situated in downtown Anaheim, near the Packing district.",
       "attendees": 10,
-      "image": "images/events/event_p43_img05.jpeg",
+      "image": "images/event_p43_img05.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2333,7 +2333,7 @@
       "address": "717 Dunn Way, Placentia, CA",
       "description": "Hey, gang sorry for the late notice. A lot has been happening in life lately. However, thought it would be neat to have the band get back together.",
       "attendees": 7,
-      "image": "images/events/event_p44_img01.jpeg",
+      "image": "images/event_p44_img01.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2347,7 +2347,7 @@
       "address": "717 Dunn Way, Placentia, CA",
       "description": "I got a new job!!! Come help me celebrate. Come talk about all things spooky and horrifying at my favorite brewery.",
       "attendees": 7,
-      "image": "images/events/event_p44_img04.jpeg",
+      "image": "images/event_p44_img04.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2361,7 +2361,7 @@
       "address": "305 E 4th St STE 200, Santa Ana, CA",
       "description": "",
       "attendees": 12,
-      "image": "images/events/event_p44_img05.jpeg",
+      "image": "images/event_p44_img05.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2375,7 +2375,7 @@
       "address": "717 Dunn Way, Placentia, CA",
       "description": "",
       "attendees": 9,
-      "image": "images/events/event_p44_img22.jpeg",
+      "image": "images/event_p44_img22.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2389,7 +2389,7 @@
       "address": "440 S Anaheim Blvd, Anaheim, CA",
       "description": "Hola friends. I'm throwing myself a quinceañera! Why you ask. Because I'm sassy. Join me for some fun at the Anaheim packing district. Let's be spooky!!!!",
       "attendees": 13,
-      "image": "images/events/event_p45_img01.jpeg",
+      "image": "images/event_p45_img01.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2403,7 +2403,7 @@
       "address": "305 E 4th St STE 200, Santa Ana, CA",
       "description": "Hey you spooky scoundrals. Lets meet up and chat all things horror. This one is a softball and getting back into the swing of things.",
       "attendees": 11,
-      "image": "images/events/event_p45_img03.jpeg",
+      "image": "images/event_p45_img03.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2417,7 +2417,7 @@
       "address": "440 S Anaheim Blvd, Anaheim, CA",
       "description": "Ey gang lets go to the Blind Rabbit and drink drinks and be spooky.",
       "attendees": 13,
-      "image": "images/events/event_p45_img05.jpeg",
+      "image": "images/event_p45_img05.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2431,7 +2431,7 @@
       "address": "8028 Beach Blvd ste b, Buena Park, CA",
       "description": "Hey gang, let's get together and go to The Cauldron. Movie recs, before we get together: Hereditary, Halloween Kills, His House.",
       "attendees": 20,
-      "image": "images/events/event_p45_img07.jpeg",
+      "image": "images/event_p45_img07.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2445,7 +2445,7 @@
       "address": "717 Dunn Way, Placentia, CA",
       "description": "Let's hang out at my favorite brewery and have a pint. I'll be leaving for three weeks on Saturday. So like a rare Pokemon catch me if you can.",
       "attendees": 0,
-      "image": "images/events/event_p46_img04.jpeg",
+      "image": "images/event_p46_img04.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2459,7 +2459,7 @@
       "address": "136 E Commonwealth Ave, Fullerton, CA",
       "description": "Hey gang redo. Let's drink whiskey and talk about the movie krampus December 3rd. At hopscotch.",
       "attendees": 5,
-      "image": "images/events/event_p46_img03.jpeg",
+      "image": "images/event_p46_img03.jpeg",
       "category": "Holiday",
       "status": "past",
       "cancelled": false
@@ -2473,7 +2473,7 @@
       "address": "3200 east palm drive, 402, Fullerton, CA",
       "description": "Hey gang. Let's hang out and bask in the post thanksgiving glow. I'm thinking we can do something low key and chill like movies, drinking, if you wish.",
       "attendees": 10,
-      "image": "images/events/event_p46_img06.jpeg",
+      "image": "images/event_p46_img06.jpeg",
       "category": "Holiday",
       "status": "past",
       "cancelled": false
@@ -2487,7 +2487,7 @@
       "address": "136 E Commonwealth Ave, Fullerton, CA",
       "description": "This week comes with a fun assignment. Watch krampus. Then we will get drunk and talk about it.",
       "attendees": 1,
-      "image": "images/events/event_p46_img18.jpeg",
+      "image": "images/event_p46_img18.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2501,7 +2501,7 @@
       "address": "34 Shady Canyon, Irvine, CA",
       "description": "Hi gang let's fight the Sunday scaries with a nice mellow hike.",
       "attendees": 4,
-      "image": "images/events/event_p47_img05.jpeg",
+      "image": "images/event_p47_img05.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -2515,7 +2515,7 @@
       "address": "18525 S Main St, Gardena, CA",
       "description": "Hey gang let's try something different. Let's meet up for drinks at phantom carriage.",
       "attendees": 6,
-      "image": "images/events/event_p47_img07.jpeg",
+      "image": "images/event_p47_img07.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2529,7 +2529,7 @@
       "address": "717 Dunn Way, Placentia, CA",
       "description": "Hey gang, join me for a post Halloween celebration. Let's chat, hang out and get to know each other.",
       "attendees": 7,
-      "image": "images/events/event_p47_img20.jpeg",
+      "image": "images/event_p47_img20.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2543,7 +2543,7 @@
       "address": "34 Shady Canyon, Irvine, CA",
       "description": "Hey gang let's do something a little different and go for a hike. This trail is supposed to be really neat and something I've been dying to see. Bring water and snacks.",
       "attendees": 1,
-      "image": "images/events/event_p48_img01.jpeg",
+      "image": "images/event_p48_img01.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -2557,7 +2557,7 @@
       "address": "121 W 4th St, Long Beach, CA",
       "description": "Hey gang, I need 6-8 volunteers to join me Sunday, October 24th at the Dark Arts Emporium in Long Beach. After we can grab a bite to eat at the 4...",
       "attendees": 4,
-      "image": "images/events/event_p48_img03.jpeg",
+      "image": "images/event_p48_img03.jpeg",
       "category": "Outdoor/Social",
       "status": "past",
       "cancelled": false
@@ -2571,7 +2571,7 @@
       "address": "3191 E La Palma Ave, Anaheim, CA",
       "description": "Hey gang, join me for a gaggle of ghoulish delights at Brewery X. Let's hang out, talk all things spooky. Give each other....frightmares.",
       "attendees": 3,
-      "image": "images/events/event_p48_img16.jpeg",
+      "image": "images/event_p48_img16.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2585,7 +2585,7 @@
       "address": "717 Dunn Way, Placentia, CA",
       "description": "Hey gang, join me at The Bruery Tasting Room on Wednesday, October 13th for our first ever meet-up. Let's all hang out and talk about all things spectacularly spooky.",
       "attendees": 9,
-      "image": "images/events/event_p49_img01.jpeg",
+      "image": "images/event_p49_img01.jpeg",
       "category": "Meet & Greet",
       "status": "past",
       "cancelled": false
@@ -2600,7 +2600,7 @@
     "address": "123 Main St, City, CA",
     "description": "Short description of the event.",
     "attendees": 0,
-    "image": "images/events/new-event.jpg",
+    "image": "images/new-event.jpg",
     "category": "Movie Night",
     "status": "upcoming",
     "cancelled": false

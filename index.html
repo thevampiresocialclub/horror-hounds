@@ -8,8 +8,2425 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=VT323&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/hero-vhs.css?v=2">
+  <style>
+/* ============================================
+   THE HORROR HOUNDS - Main Stylesheet
+   ============================================ */
+
+/* --- Reset & Base --- */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #0a0a0a;
+  color: #e8e0d8;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  color: inherit;
+}
+
+/* --- Utilities --- */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.title-accent {
+  color: #c41e3a;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: #8a8078;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- Buttons --- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: #c41e3a;
+  color: #fff;
+  border: 1px solid #c41e3a;
+}
+
+.btn-primary:hover {
+  background: #a3182f;
+  border-color: #a3182f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(196, 30, 58, 0.35);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #e8e0d8;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline:hover {
+  border-color: #c41e3a;
+  color: #c41e3a;
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 0.55rem 1.25rem;
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   FOG OVERLAY
+   ============================================ */
+
+.fog-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.fog-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+}
+
+.fog-1 {
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(196, 30, 58, 0.15) 50%,
+    transparent 70%
+  );
+  animation: fogDrift1 18s ease-in-out infinite;
+}
+
+.fog-2 {
+  background: linear-gradient(
+    240deg,
+    transparent 30%,
+    rgba(107, 33, 168, 0.12) 50%,
+    transparent 70%
+  );
+  animation: fogDrift2 22s ease-in-out infinite;
+}
+
+@keyframes fogDrift1 {
+  0%, 100% { transform: translateX(-15%) scaleX(1.3); }
+  50% { transform: translateX(15%) scaleX(1.1); }
+}
+
+@keyframes fogDrift2 {
+  0%, 100% { transform: translateX(10%) scaleY(1.2); }
+  50% { transform: translateX(-10%) scaleY(1); }
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.25rem 0;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.main-nav.scrolled {
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  color: #e8e0d8;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-logo:hover {
+  color: #c41e3a;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #8a8078;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #c41e3a;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #e8e0d8;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  margin-left: 0.5rem;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+  cursor: pointer;
+  z-index: 110;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #e8e0d8;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+}
+
+.gradient-orb:nth-child(1) {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #c41e3a, transparent 70%);
+  top: -10%;
+  right: -5%;
+  animation: orbFloat1 20s ease-in-out infinite;
+}
+
+.gradient-orb:nth-child(2) {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #6b21a8, transparent 70%);
+  bottom: -10%;
+  left: -5%;
+  animation: orbFloat2 25s ease-in-out infinite;
+}
+
+.gradient-orb:nth-child(3) {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #8b1a2b, transparent 70%);
+  top: 40%;
+  left: 30%;
+  animation: orbFloat3 18s ease-in-out infinite;
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-40px, 30px) scale(1.05); }
+  66% { transform: translate(20px, -20px) scale(0.95); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.08); }
+  66% { transform: translate(-20px, 20px) scale(0.92); }
+}
+
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 30px) scale(1.1); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.hero-title {
+  margin-bottom: 1.5rem;
+}
+
+.hero-the {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #8a8078;
+  margin-bottom: 0.25rem;
+}
+
+.hero-name {
+  display: block;
+  font-family: 'Creepster', cursive;
+  font-size: 5.5rem;
+  line-height: 1;
+  color: #c41e3a;
+  text-shadow: 0 0 60px rgba(196, 30, 58, 0.3);
+  letter-spacing: 0.04em;
+}
+
+.hero-tagline {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #e8e0d8;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: #8a8078;
+  max-width: 480px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  color: #c41e3a;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #8a8078;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, #c41e3a, transparent);
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(10px); opacity: 0.4; }
+}
+
+/* ============================================
+   ABOUT
+   ============================================ */
+
+.about {
+  padding: 6rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-text {
+  font-size: 0.95rem;
+  color: #8a8078;
+  line-height: 1.8;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+}
+
+.about-lead {
+  font-size: 1.15rem;
+  color: #e8e0d8;
+  font-weight: 500;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.about-categories {
+  margin-top: 1.5rem;
+}
+
+.category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pill {
+  padding: 0.45rem 1rem;
+  background: rgba(196, 30, 58, 0.1);
+  border: 1px solid rgba(196, 30, 58, 0.25);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #c41e3a;
+  transition: all 0.3s ease;
+}
+
+.pill:hover {
+  background: rgba(196, 30, 58, 0.2);
+  border-color: rgba(196, 30, 58, 0.4);
+}
+
+/* ============================================
+   UPCOMING EVENTS (Placeholder)
+   ============================================ */
+
+.upcoming {
+  padding: 6rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.upcoming-placeholder {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(26, 26, 26, 0.5);
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+.placeholder-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  animation: placeholderPulse 3s ease-in-out infinite;
+}
+
+@keyframes placeholderPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+/* ============================================
+   PAST EVENTS
+   ============================================ */
+
+.past-events {
+  padding: 6rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Filters */
+
+.filters-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-categories {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.filter-categories::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-pill {
+  padding: 0.5rem 1.15rem;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #8a8078;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-pill:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #e8e0d8;
+}
+
+.filter-pill.active {
+  background: #c41e3a;
+  border-color: #c41e3a;
+  color: #fff;
+}
+
+.filter-search {
+  position: relative;
+}
+
+.filter-search input {
+  padding: 0.55rem 1rem 0.55rem 2.25rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  color: #e8e0d8;
+  width: 220px;
+  transition: all 0.3s ease;
+}
+
+.filter-search input::placeholder {
+  color: #8a8078;
+}
+
+.filter-search input:focus {
+  border-color: rgba(196, 30, 58, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.filter-search::before {
+  content: '\1F50D';
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.events-meta {
+  font-size: 0.85rem;
+  color: #8a8078;
+  margin-bottom: 1.5rem;
+}
+
+/* Events Grid */
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Event Card */
+
+.event-card {
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(196, 30, 58, 0.3);
+  box-shadow: 0 12px 40px rgba(196, 30, 58, 0.12);
+}
+
+.event-card-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.event-card-image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.event-card:hover .event-card-image img {
+  transform: scale(1.05);
+}
+
+.event-card-body {
+  padding: 1.25rem;
+}
+
+.event-card-category {
+  display: inline-block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #c41e3a;
+  margin-bottom: 0.65rem;
+  padding-left: 0.75rem;
+  padding-right: 0.2em; /* compensate for trailing letter-spacing */
+  text-shadow:
+    0 0 10px rgba(196, 30, 58, 0.55),
+    0 0 24px rgba(196, 30, 58, 0.25);
+  position: relative;
+}
+
+.event-card-category::after {
+  /* Thin red rail under the category tag */
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 28px;
+  height: 2px;
+  background: #c41e3a;
+  box-shadow: 0 0 6px rgba(196, 30, 58, 0.8);
+}
+
+.event-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e8e0d8;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.event-card-date,
+.event-card-location {
+  font-size: 0.82rem;
+  color: #8a8078;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.event-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.event-card-attendees {
+  font-size: 0.8rem;
+  color: #8a8078;
+}
+
+/* Load More */
+
+.load-more-container {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.site-footer {
+  padding: 4rem 0 0;
+  background: #111111;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  position: relative;
+  z-index: 2;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+}
+
+.footer-brand {
+  max-width: 320px;
+}
+
+.footer-logo {
+  font-family: 'Creepster', cursive;
+  font-size: 2rem;
+  color: #c41e3a;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: #8a8078;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.footer-location {
+  font-size: 0.82rem;
+  color: #8a8078;
+}
+
+.footer-links h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #e8e0d8;
+  margin-bottom: 1rem;
+}
+
+.footer-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-links a {
+  font-size: 0.88rem;
+  color: #8a8078;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #c41e3a;
+}
+
+.footer-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-bottom {
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  text-align: center;
+  font-size: 0.8rem;
+  color: #8a8078;
+}
+
+/* ============================================
+   MODAL
+   ============================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 680px;
+  max-height: 90vh;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  overflow-y: auto;
+  transform: translateY(30px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  font-size: 1.1rem;
+  color: #e8e0d8;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: #c41e3a;
+}
+
+.modal-image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.modal-body {
+  padding: 1.75rem;
+}
+
+.modal-category {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c41e3a;
+  margin-bottom: 0.5rem;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  line-height: 1.3;
+}
+
+.modal-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.modal-detail {
+  font-size: 0.88rem;
+  color: #8a8078;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-description {
+  font-size: 0.95rem;
+  color: #8a8078;
+  line-height: 1.8;
+}
+
+.modal-description p {
+  margin-bottom: 0.75rem;
+}
+
+/* ============================================
+   FADE-IN ANIMATIONS (Scroll Reveal)
+   ============================================ */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children delays */
+.fade-in:nth-child(2) { transition-delay: 0.08s; }
+.fade-in:nth-child(3) { transition-delay: 0.16s; }
+.fade-in:nth-child(4) { transition-delay: 0.24s; }
+.fade-in:nth-child(5) { transition-delay: 0.32s; }
+.fade-in:nth-child(6) { transition-delay: 0.4s; }
+
+/* ============================================
+   RESPONSIVE - Tablet (max-width: 900px)
+   ============================================ */
+
+@media (max-width: 900px) {
+  .section-title {
+    font-size: 2.4rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
+
+  .hero-name {
+    font-size: 4rem;
+  }
+
+  .hero-stats {
+    gap: 2rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - Mobile (max-width: 640px)
+   ============================================ */
+
+@media (max-width: 640px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  /* Nav mobile */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 54px;
+    right: 0;
+    width: 280px;
+    height: calc(100vh - 54px);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: rgba(10, 10, 10, 0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+  }
+
+  .nav-cta {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  /* Hero mobile */
+  .hero-name {
+    font-size: 3rem;
+  }
+
+  .hero-the {
+    font-size: 0.9rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.05rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .hero-stats {
+    gap: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Events grid mobile */
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-search input {
+    width: 100%;
+  }
+
+  /* Footer mobile */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  /* Modal mobile */
+  .modal-content {
+    width: 95%;
+    max-height: 85vh;
+    border-radius: 12px;
+  }
+
+  .modal-body {
+    padding: 1.25rem;
+  }
+
+  .modal-title {
+    font-size: 1.25rem;
+  }
+
+  /* About */
+  .about,
+  .upcoming,
+  .past-events {
+    padding: 4rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+}
+
+/* ============================================
+   SELECTION & SCROLLBAR
+   ============================================ */
+
+::selection {
+  background: rgba(196, 30, 58, 0.35);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(196, 30, 58, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(196, 30, 58, 0.5);
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(196, 30, 58, 0.3) #0a0a0a;
+}
+
+/* ============================================
+   HERO VHS — image-based + spooky VHS effects
+   ============================================ */
+
+.hero-vhs {
+  position: relative;
+  display: block;
+  width: 1080px;
+  max-width: 100%;
+  margin: 0 auto 2rem;
+  /* Pulsing red horror aura around the tape */
+  filter:
+    drop-shadow(0 14px 40px rgba(0, 0, 0, 0.9))
+    drop-shadow(0 0 30px rgba(196, 30, 58, 0.35));
+  animation: vhsGlowPulse 4.5s ease-in-out infinite;
+}
+
+@keyframes vhsGlowPulse {
+  0%, 100% {
+    filter:
+      drop-shadow(0 14px 40px rgba(0, 0, 0, 0.9))
+      drop-shadow(0 0 24px rgba(196, 30, 58, 0.28));
+  }
+  50% {
+    filter:
+      drop-shadow(0 14px 40px rgba(0, 0, 0, 0.9))
+      drop-shadow(0 0 48px rgba(196, 30, 58, 0.55))
+      drop-shadow(0 0 80px rgba(196, 30, 58, 0.25));
+  }
+}
+
+.hero-vhs .vhs-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  /* Periodic subtle brightness jitter + chromatic split on the image itself */
+  animation: vhsImgFlicker 7s steps(24) infinite;
+  image-rendering: auto;
+}
+
+@keyframes vhsImgFlicker {
+  0%, 100%      { filter: none; }
+  3%            { filter: hue-rotate(-8deg) saturate(1.2) brightness(1.08); }
+  4%            { filter: none; }
+  42%           { filter: brightness(0.82) contrast(1.15); }
+  43%           { filter: none; }
+  88%           { filter: blur(0.4px) brightness(1.1) hue-rotate(4deg); }
+  89%           { filter: none; }
+  95%           { filter: brightness(1.3) contrast(1.2); }
+  96%           { filter: none; }
+}
+
+/* Scanline overlay clipped to the image area */
+.hero-vhs .vhs-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0 2px,
+    rgba(255, 255, 255, 0.07) 2px 3px
+  );
+  opacity: 0.55;
+  mix-blend-mode: overlay;
+  animation: vhsFlicker 6s steps(12) infinite;
+  z-index: 2;
+}
+
+@keyframes vhsFlicker {
+  0%, 92%, 100% { opacity: 0.55; transform: translateX(0); }
+  93%           { opacity: 0.25; transform: translateX(-1px); }
+  95%           { opacity: 0.85; transform: translateX(1px); }
+  96%           { opacity: 0.35; transform: translateX(0); }
+}
+
+/* Tracking band: a bright horizontal distortion that sweeps down the tape periodically */
+.hero-vhs::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 14px;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 30%,
+    rgba(196, 30, 58, 0.4) 50%,
+    rgba(255, 255, 255, 0.15) 70%,
+    transparent 100%
+  );
+  mix-blend-mode: screen;
+  filter: blur(1px);
+  animation: vhsTracking 9s linear infinite;
+  opacity: 0;
+}
+
+@keyframes vhsTracking {
+  /* Stays invisible most of the time; sweeps down every cycle */
+  0%, 100%  { top: -20px; opacity: 0; }
+  2%        { opacity: 0.9; }
+  14%       { top: 100%; opacity: 0.9; }
+  15%       { opacity: 0; }
+}
+
+/* Chromatic aberration — a faint red/cyan edge ghost of the image */
+.hero-vhs::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  /* Crimson vignette around the tape that pulses with the glow */
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(196, 30, 58, 0.08) 80%,
+    rgba(196, 30, 58, 0.2) 100%
+  );
+  mix-blend-mode: screen;
+}
+
+/* Visually hidden title/label text: present in DOM for a11y + SEO, not rendered */
+.vhs-label-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Return nav to top (no top border VHS anymore) */
+.main-nav {
+  top: 0;
+}
+
+/* ============================================
+   CRT / SCANLINE OVERLAY (whole page)
+   ============================================ */
+
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 95;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 2px,
+      rgba(0, 0, 0, 0.12) 2px 3px
+    );
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+}
+
+.crt-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 96;
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 35%,
+      rgba(0, 0, 0, 0.35) 75%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+}
+
+/* Subtle overall flicker — applied to crt-overlay (NOT body),
+   because filter on body breaks position:fixed descendants. */
+.crt-overlay {
+  animation: crtFlicker 7s steps(20) infinite;
+}
+
+@keyframes crtFlicker {
+  0%, 94%, 100% { opacity: 0.55; }
+  95%           { opacity: 0.35; }
+  96%           { opacity: 0.7;  }
+  97%           { opacity: 0.45; }
+}
+
+/* ============================================
+   HORROR THEMING — HERO TITLE FLICKER
+   ============================================ */
+
+.hero-name {
+  text-shadow:
+    0 0 20px rgba(196, 30, 58, 0.4),
+    0 0 40px rgba(196, 30, 58, 0.2),
+    2px 0 0 rgba(196, 30, 58, 0.5),
+    -2px 0 0 rgba(107, 33, 168, 0.45);
+  animation: heroNeonFlicker 5s infinite;
+}
+
+@keyframes heroNeonFlicker {
+  0%, 88%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 20px rgba(196, 30, 58, 0.4),
+      0 0 40px rgba(196, 30, 58, 0.2),
+      2px 0 0 rgba(196, 30, 58, 0.5),
+      -2px 0 0 rgba(107, 33, 168, 0.45);
+  }
+  89% { opacity: 0.4; }
+  90% { opacity: 1; }
+  92% { opacity: 0.7; text-shadow: 3px 0 0 #c41e3a, -3px 0 0 #6b21a8; }
+  94% { opacity: 1; }
+}
+
+/* ============================================
+   HORROR THEMING — SECTION TITLES
+   with red drip accent under headings
+   ============================================ */
+
+.section-title {
+  position: relative;
+  text-shadow: 0 0 20px rgba(196, 30, 58, 0.25);
+}
+
+.section-title::after {
+  /* Drip shape below headings (SVG as background) */
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 24' fill='%23c41e3a'%3E%3Cpath d='M0 0 L180 0 L180 4 L0 4 Z'/%3E%3Cpath d='M20 4 Q22 12 20 16 Q19 20 20 22 Q21 18 22 14 Z'/%3E%3Cpath d='M60 4 Q62 18 60 22 Q58 15 59 8 Z'/%3E%3Cpath d='M100 4 Q102 9 101 14 Z'/%3E%3Cpath d='M140 4 Q142 14 141 19 Q139 16 140 10 Z'/%3E%3Ccircle cx='20' cy='22' r='1.5'/%3E%3Ccircle cx='60' cy='21' r='2'/%3E%3Ccircle cx='140' cy='18' r='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: drop-shadow(0 0 4px rgba(196, 30, 58, 0.5));
+  pointer-events: none;
+}
+
+/* Hide existing title-accent since we now use ::after drip */
+.title-accent { display: none; }
+
+.section-header {
+  margin-bottom: 4rem;
+}
+
+/* ============================================
+   HORROR THEMING — NAV
+   ============================================ */
+
+.main-nav.scrolled {
+  background: rgba(8, 4, 4, 0.95);
+  border-bottom: 1px solid rgba(196, 30, 58, 0.25);
+  box-shadow: 0 2px 20px rgba(196, 30, 58, 0.08);
+}
+
+.nav-logo {
+  text-shadow: 0 0 8px rgba(196, 30, 58, 0.5);
+}
+
+.nav-links a:hover {
+  text-shadow: 0 0 10px rgba(196, 30, 58, 0.7);
+}
+
+.nav-cta {
+  border: 1px solid rgba(196, 30, 58, 0.5);
+  padding: 0.4rem 0.9rem !important;
+  border-radius: 2px;
+  background: rgba(196, 30, 58, 0.08);
+  transition: all 0.2s ease;
+}
+
+.nav-cta:hover {
+  background: rgba(196, 30, 58, 0.22);
+  box-shadow: 0 0 12px rgba(196, 30, 58, 0.4);
+  text-shadow: none !important;
+}
+.nav-cta::after { display: none !important; }
+
+/* ============================================
+   HORROR THEMING — EVENT CARDS (VHS feel)
+   ============================================ */
+
+.event-card {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card::before {
+  /* Tracking-line scanlines across the card image */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  pointer-events: none;
+  z-index: 2;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0 2px,
+    rgba(0,0,0,0.12) 2px 3px
+  );
+  mix-blend-mode: overlay;
+  opacity: 0.5;
+}
+
+.event-card::after {
+  /* Corner "tape counter" style tag */
+  content: 'REC \25CF';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: #c41e3a;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 3px 7px 2px;
+  border: 1px solid rgba(196, 30, 58, 0.4);
+  text-shadow: 0 0 4px rgba(196, 30, 58, 0.8);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.event-card:hover {
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.8),
+    0 0 24px rgba(196, 30, 58, 0.25);
+}
+
+/* ============================================
+   HORROR THEMING — BUTTONS (glowy)
+   ============================================ */
+
+.btn-primary {
+  box-shadow:
+    0 0 0 1px #c41e3a inset,
+    0 0 12px rgba(196, 30, 58, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow:
+    0 0 0 1px #a3182f inset,
+    0 6px 24px rgba(196, 30, 58, 0.5),
+    0 0 30px rgba(196, 30, 58, 0.4);
+}
+
+/* ============================================
+   HORROR THEMING — HERO TAGLINES
+   ============================================ */
+
+.hero-tagline {
+  font-family: 'Creepster', 'Bebas Neue', sans-serif;
+  letter-spacing: 0.04em;
+  color: #c9b8ad;
+  text-shadow: 0 0 8px rgba(196, 30, 58, 0.3);
+  font-weight: 400;
+}
+
+.hero-the {
+  color: #c41e3a;
+  text-shadow: 0 0 10px rgba(196, 30, 58, 0.6);
+}
+
+/* ============================================
+   HORROR THEMING — FILTER PILLS
+   ============================================ */
+
+.filter-pill {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.filter-pill:hover {
+  box-shadow: 0 0 10px rgba(196, 30, 58, 0.3);
+}
+
+.filter-pill.active {
+  box-shadow:
+    0 0 0 1px #c41e3a inset,
+    0 0 14px rgba(196, 30, 58, 0.4);
+}
+
+/* ============================================
+   HORROR THEMING — ABOUT CATEGORY PILLS
+   ============================================ */
+
+.pill {
+  transition: all 0.2s ease;
+}
+
+.pill:hover {
+  background: rgba(196, 30, 58, 0.15);
+  border-color: rgba(196, 30, 58, 0.5);
+  color: #e8e0d8;
+  text-shadow: 0 0 6px rgba(196, 30, 58, 0.5);
+}
+
+/* ============================================
+   BAT COLUMNS (vertical side decorations)
+   ============================================ */
+
+.bat-column {
+  position: fixed;
+  top: 120px;
+  bottom: 20px;
+  width: 70px;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* Silhouette with enough lift off true black that the drop-shadow reads */
+  color: #140808;
+  opacity: 0.95;
+}
+
+.bat-column-left  { left: 0; }
+.bat-column-right { right: 0; }
+
+.bat-column .bat {
+  width: 56px;
+  height: auto;
+  filter:
+    drop-shadow(0 0 10px rgba(196, 30, 58, 0.7))
+    drop-shadow(0 0 3px rgba(196, 30, 58, 0.9))
+    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.85));
+}
+
+/* Vary bat sizes slightly for organic feel */
+.bat-column .bat:nth-child(1) { width: 52px; transform: rotate(-6deg); }
+.bat-column .bat:nth-child(2) { width: 60px; transform: rotate(4deg); }
+.bat-column .bat:nth-child(3) { width: 48px; transform: rotate(-3deg); }
+.bat-column .bat:nth-child(4) { width: 58px; transform: rotate(7deg); }
+
+.bat-column-right .bat:nth-child(1) { transform: rotate(6deg) scaleX(-1); }
+.bat-column-right .bat:nth-child(2) { transform: rotate(-4deg) scaleX(-1); }
+.bat-column-right .bat:nth-child(3) { transform: rotate(3deg) scaleX(-1); }
+.bat-column-right .bat:nth-child(4) { transform: rotate(-7deg) scaleX(-1); }
+
+/* Nudge central content so bats don't overlap on wider screens */
+@media (min-width: 1340px) {
+  .bat-column { width: 90px; }
+  .bat-column .bat:nth-child(odd)  { width: 64px; }
+  .bat-column .bat:nth-child(even) { width: 70px; }
+}
+
+/* ============================================
+   FOOTER CTA BUTTON GROUP
+   ============================================ */
+
+.footer-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+/* ============================================
+   NAV ICON LINK (Instagram)
+   ============================================ */
+
+.nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #8a8078;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-icon:hover {
+  color: #c41e3a;
+  transform: translateY(-1px);
+}
+
+.nav-icon::after {
+  display: none !important;
+}
+
+/* ============================================
+   HERO LAYOUT (image-based VHS + next-event card)
+   ============================================ */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 6rem 1.5rem 4rem;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* ===== Next event card ===== */
+.next-event-card {
+  max-width: 620px;
+  width: 100%;
+  background: rgba(20, 20, 24, 0.7);
+  border: 1px solid rgba(196, 30, 58, 0.3);
+  border-left: 3px solid #c41e3a;
+  border-radius: 4px;
+  padding: 1.75rem 2rem;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    0 0 24px rgba(196, 30, 58, 0.1);
+  text-align: left;
+  position: relative;
+  z-index: 3;
+}
+
+.next-event-card .evt-category {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  color: #c41e3a;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(196, 30, 58, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.next-event-card .evt-title {
+  font-family: 'Creepster', 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: #e8e0d8;
+  letter-spacing: 0.03em;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 12px rgba(196, 30, 58, 0.35);
+}
+
+.next-event-card .evt-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 0.9rem;
+  color: #c9b8ad;
+  margin-bottom: 0.9rem;
+}
+
+.next-event-card .evt-meta b {
+  color: #e8e0d8;
+  font-weight: 500;
+}
+
+.next-event-card .evt-desc {
+  color: #a89a8e;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.next-event-card .evt-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.next-event-card .btn {
+  padding: 0.65rem 1.25rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   RESPONSIVE - Bats
+   ============================================ */
+
+@media (max-width: 900px) {
+  .bat-column { width: 50px; }
+  .bat-column .bat { width: 40px !important; }
+  .bat-column .bat:nth-child(odd)  { width: 38px !important; }
+  .bat-column .bat:nth-child(even) { width: 44px !important; }
+}
+
+@media (max-width: 640px) {
+  /* Hide bats on mobile - they'd crowd content */
+  .bat-column { display: none; }
+  /* Lighter CRT effect on small screens for readability */
+  .crt-overlay { opacity: 0.3; }
+  .section-title::after { width: 120px; bottom: -18px; }
+}
+
+/* ===========================================================================
+   HORROR VHS HERO — Photo cassette + overlaid label
+   Color system: deep purple + acid green
+   =========================================================================== */
+
+:root {
+  /* Neon horror palette — cyan/magenta/violet with radioactive lime lightning */
+  --hh-cyan:        #22d3ee;   /* primary — electric cyan rim light */
+  --hh-cyan-bright: #67e8f9;
+  --hh-magenta:     #ec4899;   /* hot pink/magenta key light */
+  --hh-magenta-hot: #f472b6;
+  --hh-violet:      #a855f7;   /* electric violet */
+  --hh-violet-deep: #6b21a8;
+  --hh-lime:        #4ade80;   /* radioactive lightning green */
+  --hh-ink:         #0a0318;   /* near-black violet */
+  --hh-ink-deep:    #050010;
+  --hh-bone:        #ecf4ff;   /* cool off-white */
+
+  /* Aliases — keep old names working for anything still referencing them */
+  --hh-purple:      var(--hh-violet);
+  --hh-purple-deep: var(--hh-violet-deep);
+  --hh-green:       var(--hh-lime);
+  --hh-green-glow:  var(--hh-cyan);
+}
+
+/* Neutralize the old fixed tape-frame + nav */
+body > .vhs-frame { display: none !important; }
+.main-nav { position: static !important; top: auto !important; }
+.main-nav .nav-container { display: none; }
+
+/* ── Hero stage ────────────────────────────────────────────────────────── */
+.hero {
+  min-height: auto !important;
+  height: auto !important;
+  padding: clamp(28px, 5vw, 72px) clamp(16px, 4vw, 48px) clamp(44px, 6vw, 96px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(28px, 4vw, 56px);
+
+  /* Neon noir: violet core, cyan rim on the left, magenta warmth on the right,
+     with a slash of radioactive lime overhead */
+  background:
+    radial-gradient(ellipse 60% 40% at 12% 75%, rgba(34, 211, 238, 0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 40% at 88% 80%, rgba(236, 72, 153, 0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 0%,  rgba(163, 255, 18, 0.10) 0%, transparent 65%),
+    radial-gradient(ellipse 120% 80% at 50% 20%,
+      #2a0a5e 0%,
+      #1a0538 30%,
+      #0a0318 65%,
+      #050010 100%);
+  overflow: visible;
+  position: relative;
+}
+
+/* Soft vignette and a faint film grain on top of the background */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: overlay;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Kill old hero bits */
+.hero .hero-bg,
+.hero > .hero-content,
+.hero .hero-scroll-indicator { display: none; }
+
+/* Everything above the z:0 vignette */
+.vhs-stage,
+.next-event-card,
+.vhs-tagline { position: relative; z-index: 1; }
+
+/* ── Cassette ──────────────────────────────────────────────────────────── */
+.vhs-stage {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.vhs-cassette-v2 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1280 / 705;
+  background-image: url('images/vhs-tape.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 30px 40px rgba(0,0,0,0.9))
+          drop-shadow(0 0 28px rgba(34, 211, 238, 0.22))
+          drop-shadow(0 0 40px rgba(236, 72, 153, 0.15));
+}
+
+.vhs-cassette-v2 > .vhs-screw-v2,
+.vhs-cassette-v2 > .vhs-reel-well,
+.vhs-cassette-v2 > .vhs-top-arrows,
+.vhs-cassette-v2 > .vhs-rec-v2 { display: none !important; }
+
+/* ── Label overlay ─────────────────────────────────────────────────────── */
+/* Photo's white label window — measured from the image */
+.vhs-label-v2 {
+  position: absolute;
+  left: 20.16%;
+  right: 18.98%;
+  top: 33.05%;
+  bottom: 24.54%;
+  background: #f3edff;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.7),
+    inset 0 -1px 2px rgba(0,0,0,0.18),
+    0 1px 3px rgba(0,0,0,0.4);
+  overflow: hidden;
+  z-index: 3;
+  border-radius: 1px;
+}
+
+.vhs-label-v2::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(91, 33, 182, 0.02) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(91, 33, 182, 0.025) 0 1px, transparent 1px 4px);
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.vhs-label-body-v2 {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(14px, 1.6vw, 22px) clamp(10px, 1.4vw, 18px);
+  gap: clamp(4px, 0.5vw, 8px);
+}
+
+/* Cyan→magenta stripes */
+.vhs-label-body-v2::before,
+.vhs-label-body-v2::after {
+  content: '';
+  position: absolute;
+  left: clamp(8px, 1.2vw, 16px);
+  right: clamp(8px, 1.2vw, 16px);
+  height: clamp(1.5px, 0.2vw, 2.5px);
+  background: linear-gradient(90deg, var(--hh-lime) 0%, var(--hh-violet) 50%, var(--hh-magenta) 100%);
+  box-shadow: 0 0 0 0.5px rgba(0,0,0,0.2);
+}
+.vhs-label-body-v2::before { top: clamp(6px, 0.9vw, 10px); }
+.vhs-label-body-v2::after {
+  bottom: clamp(6px, 0.9vw, 10px);
+  background: linear-gradient(90deg, var(--hh-magenta) 0%, var(--hh-violet) 50%, var(--hh-lime) 100%);
+}
+
+.vhs-label-title-v2 {
+  font-family: 'Creepster', 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 5.2vw, 4.6rem);
+  line-height: 0.88;
+  letter-spacing: 0.01em;
+  color: #1a0a2e;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+  margin: 0;
+}
+
+.vhs-label-tagline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(0.8rem, 1.3vw, 1.2rem);
+  line-height: 1.3;
+  color: #3a1f5c;
+  max-width: 42ch;
+  margin: 0;
+  text-wrap: pretty;
+  font-weight: 500;
+}
+
+@media (max-width: 380px) {
+  .vhs-label-tagline { font-size: 9px; line-height: 1.3; }
+}
+
+/* ── Hamburger menu ────────────────────────────────────────────────────── */
+.vhs-menu {
+  position: absolute;
+  top: clamp(10px, 1.4vw, 18px);
+  right: clamp(10px, 1.4vw, 18px);
+  z-index: 5;
+}
+.vhs-menu-toggle {
+  appearance: none;
+  background: rgba(10, 5, 19, 0.7);
+  border: 1px solid rgba(157, 78, 221, 0.35);
+  width: clamp(40px, 3.8vw, 50px);
+  height: clamp(40px, 3.8vw, 50px);
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6),
+              0 0 0 1px rgba(163, 230, 53, 0.05);
+}
+.vhs-menu-toggle:hover {
+  background: rgba(157, 78, 221, 0.3);
+  border-color: var(--hh-green);
+  box-shadow: 0 0 16px rgba(163, 230, 53, 0.35);
+}
+.vhs-menu-toggle .bar {
+  display: block;
+  width: clamp(20px, 2.1vw, 26px);
+  height: 2px;
+  background: var(--hh-bone);
+  margin: 3px 0;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.vhs-menu-toggle[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.vhs-menu-toggle[aria-expanded="true"] .bar:nth-child(2) { opacity: 0; }
+.vhs-menu-toggle[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+.vhs-menu-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: clamp(220px, 20vw, 280px);
+  background: #120821;
+  border: 1px solid rgba(157, 78, 221, 0.5);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.85),
+              0 0 30px rgba(157, 78, 221, 0.2);
+  padding: 8px;
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 10;
+}
+.vhs-menu-panel.open { display: flex; }
+.vhs-menu-panel a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.16em;
+  color: var(--hh-bone);
+  text-transform: uppercase;
+  border-left: 2px solid transparent;
+  transition: all 0.15s;
+}
+.vhs-menu-panel a::after {
+  content: '▸';
+  color: var(--hh-green);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.15s, transform 0.15s;
+}
+.vhs-menu-panel a:hover {
+  background: rgba(157, 78, 221, 0.2);
+  border-left-color: var(--hh-green);
+  color: #fff;
+}
+.vhs-menu-panel a:hover::after { opacity: 1; transform: translateX(0); }
+.vhs-menu-panel .menu-cta {
+  margin-top: 6px;
+  background: var(--hh-purple);
+  color: #fff;
+  justify-content: center;
+}
+.vhs-menu-panel .menu-cta:hover {
+  background: var(--hh-green);
+  color: var(--hh-ink);
+  border-left-color: transparent;
+}
+
+/* ── Next-event card ───────────────────────────────────────────────────── */
+.next-event-card {
+  width: 100%;
+  max-width: 540px;
+  background: #120826;
+  border: 1px solid rgba(74, 222, 128, 0.4);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.7),
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 0 24px rgba(74, 222, 128, 0.18),
+    0 0 40px rgba(236, 72, 153, 0.08);
+  padding: clamp(22px, 3vw, 34px);
+  position: relative;
+}
+.next-event-card::before {
+  content: 'NEXT EVENT';
+  position: absolute;
+  top: -11px; left: 20px;
+  padding: 2px 10px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  background: var(--hh-ink-deep);
+  color: var(--hh-lime);
+  border: 1px solid rgba(74, 222, 128, 0.5);
+  text-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+}
+.next-event-card .evt-category { display: none; }
+.next-event-card .evt-title {
+  font-family: 'Creepster', 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--hh-bone);
+  line-height: 1.05;
+  margin: 6px 0 14px;
+}
+.next-event-card .evt-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 20px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  color: #b8a8d0;
+  margin-bottom: 16px;
+}
+.next-event-card .evt-meta span { display: inline-flex; gap: 6px; align-items: center; }
+.next-event-card .evt-meta b { color: var(--hh-bone); font-weight: 500; }
+.next-event-card .evt-desc {
+  font-size: 14px;
+  color: #b8a8d0;
+  margin-bottom: 18px;
+  line-height: 1.55;
+}
+.next-event-card .evt-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.next-event-card .btn {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  padding: 10px 18px;
+  border: 1px solid var(--hh-lime);
+  background: var(--hh-lime);
+  color: var(--hh-ink);
+  transition: all 0.15s;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.15);
+}
+.next-event-card .btn:hover {
+  background: var(--hh-magenta);
+  border-color: var(--hh-magenta);
+  color: #fff;
+  box-shadow: 0 0 18px rgba(236, 72, 153, 0.55),
+              0 0 30px rgba(168, 85, 247, 0.35);
+}
+.next-event-card .btn.ghost {
+  background: transparent;
+  color: var(--hh-magenta);
+  border-color: var(--hh-magenta);
+}
+.next-event-card .btn.ghost:hover {
+  background: var(--hh-magenta);
+  color: #fff;
+}
+
+/* ========================================================================
+   BATS — outlined, purple→green stroke, animated flying up the columns
+   ======================================================================== */
+
+.bat-column {
+  /* widen + taller so animations have runway */
+  width: clamp(60px, 6vw, 100px) !important;
+  top: 0 !important;
+  height: 100vh !important;
+  overflow: hidden;
+  pointer-events: none;
+  gap: 0 !important;
+  z-index: 50 !important;     /* float above every section */
+  display: flex !important;    /* override media-query display:none */
+}
+
+/* Keep bats visible all the way down the page on every screen size */
+@media (max-width: 900px) {
+  .bat-column {
+    display: flex !important;
+    width: clamp(44px, 8vw, 70px) !important;
+  }
+}
+@media (max-width: 640px) {
+  .bat-column { display: flex !important; }
+}
+@media (max-width: 480px) {
+  /* Two bats per side is enough on tiny screens */
+  .bat-column .bat:nth-child(3),
+  .bat-column .bat:nth-child(4) { display: none; }
+}
+
+/* Neon-cycle stroke: cyan primary, magenta + violet alternates */
+.bat-column .bat {
+  fill: none !important;
+  stroke: var(--hh-lime);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  filter:
+    drop-shadow(0 0 4px rgba(74, 222, 128, 0.8))
+    drop-shadow(0 0 10px rgba(236, 72, 153, 0.45))
+    drop-shadow(0 0 1px rgba(168, 85, 247, 0.9));
+  color: transparent;
+  width: clamp(38px, 3.6vw, 60px) !important;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  transform-origin: center;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.bat-column .bat:nth-child(2n)   { stroke: var(--hh-magenta); filter: drop-shadow(0 0 4px rgba(236, 72, 153, 0.8)) drop-shadow(0 0 10px rgba(168, 85, 247, 0.5)); }
+.bat-column .bat:nth-child(3n)   { stroke: var(--hh-violet); filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.8)) drop-shadow(0 0 10px rgba(74, 222, 128, 0.4)); }
+.bat-column .bat:nth-child(4n)   { stroke: var(--hh-cyan); filter: drop-shadow(0 0 4px rgba(34, 211, 238, 0.75)) drop-shadow(0 0 10px rgba(74, 222, 128, 0.4)); }
+
+/* Each bat gets its own flight: staggered delays, slightly different durations */
+.bat-column .bat:nth-child(1) { animation: batFly 14s linear  0s    infinite; }
+.bat-column .bat:nth-child(2) { animation: batFly 17s linear -3.5s  infinite; }
+.bat-column .bat:nth-child(3) { animation: batFly 12s linear -7s    infinite; }
+.bat-column .bat:nth-child(4) { animation: batFly 16s linear -10.5s infinite; }
+
+/* Right column flies in the opposite direction + mirrored */
+.bat-column-right .bat { animation-name: batFlyDown !important; }
+.bat-column-right .bat:nth-child(1),
+.bat-column-right .bat:nth-child(2),
+.bat-column-right .bat:nth-child(3),
+.bat-column-right .bat:nth-child(4) { /* inherit timings from :nth rules above */ }
+
+/* Override left-mirrored transforms from old css so they stop applying rotate-only */
+.bat-column .bat:nth-child(1),
+.bat-column .bat:nth-child(2),
+.bat-column .bat:nth-child(3),
+.bat-column .bat:nth-child(4) {
+  /* reset old rotations — animation handles transform */
+}
+
+@keyframes batFly {
+  0%   { transform: translate(-50%, 110vh) rotate(-8deg) scale(0.85); opacity: 0; }
+  8%   { opacity: 0.95; }
+  25%  { transform: translate(-30%, 75vh)  rotate(6deg)  scale(1);    opacity: 1; }
+  50%  { transform: translate(-70%, 45vh)  rotate(-10deg) scale(0.95); opacity: 1; }
+  75%  { transform: translate(-35%, 20vh)  rotate(8deg)  scale(1.05); opacity: 0.9; }
+  92%  { opacity: 0.9; }
+  100% { transform: translate(-60%, -15vh) rotate(-6deg) scale(0.9);  opacity: 0; }
+}
+
+@keyframes batFlyDown {
+  0%   { transform: translate(-50%, -15vh) rotate(8deg)  scale(0.85); opacity: 0; }
+  8%   { opacity: 0.95; }
+  25%  { transform: translate(-70%, 20vh)  rotate(-6deg) scale(1);    opacity: 1; }
+  50%  { transform: translate(-30%, 45vh)  rotate(10deg) scale(0.95); opacity: 1; }
+  75%  { transform: translate(-65%, 75vh)  rotate(-8deg) scale(1.05); opacity: 0.9; }
+  92%  { opacity: 0.9; }
+  100% { transform: translate(-40%, 110vh) rotate(6deg)  scale(0.9);  opacity: 0; }
+}
+
+/* Wing-flutter: scaleX oscillation layered on top via a child wrapper?
+   Simpler: add a fast scaleX pulse to the svg itself */
+.bat-column .bat {
+  animation-timing-function: linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bat-column .bat { animation: none; opacity: 0.5; transform: translate(-50%, 50vh); }
+}
+
+/* ========================================================================
+   GLOBAL COLOR OVERRIDES — recolor red accents from the base stylesheet
+   to the new purple/green system
+   ======================================================================== */
+
+/* Primary red → primary purple */
+.title-accent,
+.nav-logo:hover,
+.hero-the,
+.filter-pill,
+.filter-pill.active,
+.footer-links a:hover,
+.nav-icon:hover,
+.modal-close:hover,
+.section-title em,
+.section-subtitle em { color: var(--hh-purple) !important; }
+
+/* Buttons */
+.btn-primary,
+.btn-primary:visited {
+  background: var(--hh-purple) !important;
+  border-color: var(--hh-purple) !important;
+  box-shadow:
+    0 0 0 1px var(--hh-purple) inset,
+    0 0 14px rgba(157, 78, 221, 0.35) !important;
+}
+.btn-primary:hover {
+  background: var(--hh-green) !important;
+  border-color: var(--hh-green) !important;
+  color: var(--hh-ink) !important;
+  box-shadow:
+    0 0 0 1px var(--hh-green) inset,
+    0 6px 24px rgba(163, 230, 53, 0.45),
+    0 0 30px rgba(163, 230, 53, 0.35) !important;
+}
+.btn-outline:hover {
+  border-color: var(--hh-green) !important;
+  color: var(--hh-green) !important;
+}
+
+/* Filter pills */
+.filter-pill.active {
+  background: var(--hh-purple) !important;
+  border-color: var(--hh-purple) !important;
+  color: #fff !important;
+  box-shadow:
+    0 0 0 1px var(--hh-purple) inset,
+    0 0 14px rgba(157, 78, 221, 0.45) !important;
+}
+
+/* Section drip: replace the red SVG with a cyan version and layer a
+   cyan→magenta gradient behind it via drop-shadow glow */
+.section-title::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 24' fill='%234ade80'%3E%3Cpath d='M0 0 L180 0 L180 4 L0 4 Z'/%3E%3Cpath d='M20 4 Q22 12 20 16 Q19 20 20 22 Q21 18 22 14 Z'/%3E%3Cpath d='M60 4 Q62 18 60 22 Q58 15 59 8 Z'/%3E%3Cpath d='M100 4 Q102 9 101 14 Z'/%3E%3Cpath d='M140 4 Q142 14 141 19 Q139 16 140 10 Z'/%3E%3Ccircle cx='20' cy='22' r='1.5'/%3E%3Ccircle cx='60' cy='21' r='2'/%3E%3Ccircle cx='140' cy='18' r='1.5'/%3E%3C/svg%3E") !important;
+  filter:
+    drop-shadow(0 0 6px rgba(74, 222, 128, 0.8))
+    drop-shadow(0 0 14px rgba(236, 72, 153, 0.4)) !important;
+  background: none;  /* clear any flat-gradient override */
+}
+
+/* Section-title text tint + glow */
+.section-title {
+  text-shadow:
+    0 0 12px rgba(74, 222, 128, 0.35),
+    0 0 28px rgba(236, 72, 153, 0.2) !important;
+}
+
+/* Nav glow retints */
+.nav-logo { text-shadow: 0 0 8px rgba(74, 222, 128, 0.55) !important; }
+.nav-links a:hover { text-shadow: 0 0 10px rgba(236, 72, 153, 0.7) !important; }
+.main-nav.scrolled {
+  border-bottom: 1px solid rgba(74, 222, 128, 0.25) !important;
+  box-shadow: 0 2px 20px rgba(168, 85, 247, 0.12) !important;
+}
+.nav-cta {
+  border-color: rgba(74, 222, 128, 0.5) !important;
+  background: rgba(74, 222, 128, 0.08) !important;
+}
+.nav-cta:hover {
+  background: rgba(236, 72, 153, 0.22) !important;
+  box-shadow: 0 0 12px rgba(236, 72, 153, 0.4) !important;
+}
+
+/* Footer + nav-cta */
+.footer-logo { color: var(--hh-purple) !important; }
+.nav-cta {
+  background: var(--hh-purple) !important;
+  border-color: var(--hh-purple) !important;
+}
+.nav-cta:hover {
+  background: var(--hh-green) !important;
+  color: var(--hh-ink) !important;
+  border-color: var(--hh-green) !important;
+}
+
+/* Hero-bg red radial blob */
+.hero-bg { display: none !important; }
+
+/* Swap the REC dot red glow for purple */
+.vhs-rec-dot {
+  background: var(--hh-green) !important;
+  box-shadow:
+    0 0 6px var(--hh-green),
+    0 0 12px rgba(163, 230, 53, 0.6) !important;
+}
+
+/* Event card category pill + titles */
+.event-card .event-category,
+.event-category,
+.modal-category { color: var(--hh-green) !important; }
+
+/* Pills in the "What We Do" section */
+.pill {
+  background: rgba(74, 222, 128, 0.08) !important;
+  border: 1px solid rgba(74, 222, 128, 0.3) !important;
+  color: var(--hh-lime) !important;
+}
+.pill:nth-child(3n) {
+  background: rgba(236, 72, 153, 0.08) !important;
+  border-color: rgba(236, 72, 153, 0.3) !important;
+  color: var(--hh-magenta) !important;
+}
+.pill:nth-child(3n+1) {
+  background: rgba(168, 85, 247, 0.08) !important;
+  border-color: rgba(168, 85, 247, 0.3) !important;
+  color: var(--hh-violet) !important;
+}
+.pill:hover {
+  background: rgba(74, 222, 128, 0.18) !important;
+  border-color: rgba(74, 222, 128, 0.55) !important;
+  box-shadow: 0 0 12px rgba(74, 222, 128, 0.3);
+}
+.pill:nth-child(3n):hover {
+  background: rgba(236, 72, 153, 0.2) !important;
+  border-color: rgba(236, 72, 153, 0.6) !important;
+  box-shadow: 0 0 12px rgba(236, 72, 153, 0.3);
+}
+.pill:nth-child(3n+1):hover {
+  background: rgba(168, 85, 247, 0.2) !important;
+  border-color: rgba(168, 85, 247, 0.6) !important;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+}
+
+/* "What We Do" heading */
+.about-categories h3 { color: var(--hh-lime) !important; }
+.about-lead strong,
+.about-text strong { color: var(--hh-magenta) !important; }
+
+
+  </style>
 </head>
 <body>
   <!-- Page-wide CRT scanline overlay (horror atmosphere) -->
@@ -64,7 +2481,7 @@
   <!-- Hero Section — VHS tape image -->
   <section class="hero" id="hero">
     <div class="hero-vhs">
-      <img class="vhs-image" src="img/vhs-hero.png" alt="The Horror Hounds &mdash; Horror fans by nature, friends by choice. Movies, Artwalks, Popups, Oddities &amp; More.">
+      <img class="vhs-image" src="images/vhs-hero.png" alt="The Horror Hounds &mdash; Horror fans by nature, friends by choice. Movies, Artwalks, Popups, Oddities &amp; More.">
       <div class="vhs-scan" aria-hidden="true"></div>
     </div>
 
@@ -265,6 +2682,507 @@
     </div>
   </div>
 
-  <script src="js/app.js"></script>
+  <script>
+// ============================================
+// The Horror Hounds - Main Application JS
+// ============================================
+
+(function() {
+  'use strict';
+
+  // --- Config ---
+  const EVENTS_PER_PAGE = 20;
+  let currentPage = 1;
+  let activeCategory = 'All';
+  let searchQuery = '';
+
+  // Events are now loaded from events.json (matching vampire-social-club setup).
+  let EVENTS_DATA = [];
+  let filteredEvents = [];
+
+  const EVENT_CATEGORIES = [
+    'All',
+    'Movie Night',
+    'Book Club',
+    'Goth Night',
+    'Meet & Greet',
+    'Art/Craft',
+    'Outdoor/Social',
+    'Live Show',
+    'Festival',
+    'Holiday'
+  ];
+
+  // --- DOM Elements ---
+  const pastEventsGrid = document.getElementById('pastEventsGrid');
+  const upcomingEventsGrid = document.getElementById('upcomingEventsGrid');
+  const upcomingPlaceholder = document.querySelector('.upcoming-placeholder');
+  const filterCategories = document.getElementById('filterCategories');
+  const searchInput = document.getElementById('searchInput');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  const loadMoreContainer = document.getElementById('loadMoreContainer');
+  const eventsCount = document.getElementById('eventsCount');
+  const mainNav = document.getElementById('mainNav');
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  // Modal elements
+  const eventModal = document.getElementById('eventModal');
+  const modalClose = document.getElementById('modalClose');
+  const modalImage = document.getElementById('modalImage');
+  const modalCategory = document.getElementById('modalCategory');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDate = document.getElementById('modalDate');
+  const modalTime = document.getElementById('modalTime');
+  const modalLocation = document.getElementById('modalLocation');
+  const modalAttendees = document.getElementById('modalAttendees');
+  const modalDescription = document.getElementById('modalDescription');
+
+  // --- Initialize ---
+  async function init() {
+    await loadEvents();
+
+    sortEvents();
+    renderFilterPills();
+    applyFilters();
+    setupNav();
+    setupSearch();
+    setupLoadMore();
+    setupModal();
+    setupScrollAnimations();
+    animateStats();
+  }
+
+  // --- Load events.json (single source of truth) ---
+  async function loadEvents() {
+    try {
+      const res = await fetch('events.json?v=' + Date.now());
+      if (!res.ok) return;
+      const data = await res.json();
+      const all = (data.events || []).filter(e => !e.cancelled);
+
+      // Normalize: derive `location` from venue + address for the existing
+      // render code that uses event.location.
+      const normalized = all.map(e => ({
+        title: e.title,
+        date: e.date,
+        time: e.time,
+        venue: e.venue,
+        address: e.address,
+        location: [e.venue, e.address].filter(Boolean).join(', '),
+        description: e.description,
+        attendees: e.attendees || 0,
+        category: e.category || 'Meet & Greet',
+        image: e.image,
+        _status: e.status
+      }));
+
+      // Split upcoming vs past by date + status (vampire's logic).
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      const upcoming = [];
+      const past = [];
+      normalized.forEach(ev => {
+        const d = new Date(ev.date + 'T00:00:00');
+        if (ev._status === 'upcoming' && d >= today) {
+          upcoming.push(ev);
+        } else {
+          past.push(ev);
+        }
+      });
+
+      EVENTS_DATA = past;
+      renderUpcomingEvents(upcoming);
+    } catch (err) {
+      console.log('events.json not loaded:', err.message);
+    }
+  }
+
+  // --- Render upcoming events ---
+  function renderUpcomingEvents(upcoming) {
+    if (!upcomingEventsGrid) return;
+
+    if (!upcoming.length) {
+      // Keep the "Stay tuned, darklings..." placeholder
+      if (upcomingPlaceholder) upcomingPlaceholder.style.display = '';
+      upcomingEventsGrid.innerHTML = '';
+      return;
+    }
+
+    // Hide placeholder, show grid
+    if (upcomingPlaceholder) upcomingPlaceholder.style.display = 'none';
+
+    // Sort soonest first
+    upcoming.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    upcomingEventsGrid.innerHTML = upcoming.map((event, index) => `
+      <article class="event-card fade-in upcoming-event-card" data-upcoming-index="${index}" style="animation-delay: ${index * 0.05}s">
+        <div class="event-card-image">
+          <img src="${event.image}" alt="${escapeAttr(event.title)}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 225%22><rect fill=%22%231a1a1a%22 width=%22400%22 height=%22225%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23444%22 font-size=%2220%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22sans-serif%22>The Horror Hounds</text></svg>'">
+          <span class="event-card-category">${escapeHtml(event.category)}</span>
+        </div>
+        <div class="event-card-body">
+          <h3 class="event-card-title">${escapeHtml(event.title)}</h3>
+          <p class="event-card-date">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            ${formatDate(event.date)} &bull; ${escapeHtml(event.time || '')}
+          </p>
+          <p class="event-card-location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            ${escapeHtml(truncateLocation(event.location || ''))}
+          </p>
+        </div>
+      </article>
+    `).join('');
+
+    // Open modal for upcoming cards
+    upcomingEventsGrid.addEventListener('click', (e) => {
+      const card = e.target.closest('.upcoming-event-card');
+      if (!card) return;
+      const index = parseInt(card.dataset.upcomingIndex);
+      openModal(upcoming[index]);
+    });
+
+    // Trigger fade-in
+    requestAnimationFrame(() => {
+      upcomingEventsGrid.querySelectorAll('.event-card.fade-in').forEach((card, i) => {
+        setTimeout(() => card.classList.add('visible'), i * 50);
+      });
+    });
+  }
+
+  function escapeHtml(str) {
+    if (str === null || str === undefined) return '';
+    const map = { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#039;' };
+    return String(str).replace(/[&<>"']/g, c => map[c]);
+  }
+
+  function escapeAttr(str) {
+    return escapeHtml(str);
+  }
+
+  // --- Sort events newest to oldest ---
+  function sortEvents() {
+    EVENTS_DATA.sort((a, b) => new Date(b.date) - new Date(a.date));
+  }
+
+  // --- Filter Pills ---
+  function renderFilterPills() {
+    filterCategories.innerHTML = EVENT_CATEGORIES.map(cat => `
+      <button class="filter-pill${cat === 'All' ? ' active' : ''}" data-category="${cat}">
+        ${cat === 'All' ? 'All Events' : cat}
+      </button>
+    `).join('');
+
+    filterCategories.addEventListener('click', (e) => {
+      const pill = e.target.closest('.filter-pill');
+      if (!pill) return;
+
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      activeCategory = pill.dataset.category;
+      currentPage = 1;
+      applyFilters();
+    });
+  }
+
+  // --- Search ---
+  function setupSearch() {
+    let debounceTimer;
+    searchInput.addEventListener('input', (e) => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        searchQuery = e.target.value.toLowerCase().trim();
+        currentPage = 1;
+        applyFilters();
+      }, 300);
+    });
+  }
+
+  // --- Apply Filters ---
+  function applyFilters() {
+    filteredEvents = EVENTS_DATA.filter(event => {
+      const matchesCategory = activeCategory === 'All' || event.category === activeCategory;
+      const matchesSearch = !searchQuery ||
+        event.title.toLowerCase().includes(searchQuery) ||
+        event.location.toLowerCase().includes(searchQuery) ||
+        event.description.toLowerCase().includes(searchQuery) ||
+        event.category.toLowerCase().includes(searchQuery);
+      return matchesCategory && matchesSearch;
+    });
+
+    renderEvents();
+    updateEventsCount();
+    updateLoadMore();
+  }
+
+  // --- Render Events ---
+  function renderEvents() {
+    const eventsToShow = filteredEvents.slice(0, currentPage * EVENTS_PER_PAGE);
+
+    pastEventsGrid.innerHTML = eventsToShow.map((event, index) => `
+      <article class="event-card fade-in" data-index="${EVENTS_DATA.indexOf(event)}" style="animation-delay: ${(index % EVENTS_PER_PAGE) * 0.05}s">
+        <div class="event-card-image">
+          <img src="${event.image}" alt="${event.title}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 225%22><rect fill=%22%231a1a1a%22 width=%22400%22 height=%22225%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23444%22 font-size=%2220%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22sans-serif%22>The Horror Hounds</text></svg>'">
+          <span class="event-card-category">${event.category}</span>
+        </div>
+        <div class="event-card-body">
+          <h3 class="event-card-title">${event.title}</h3>
+          <p class="event-card-date">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            ${formatDate(event.date)} &bull; ${event.time}
+          </p>
+          <p class="event-card-location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            ${truncateLocation(event.location)}
+          </p>
+        </div>
+        <div class="event-card-footer">
+          <span class="event-card-attendees">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            </svg>
+            ${event.attendees} attended
+          </span>
+        </div>
+      </article>
+    `).join('');
+
+    // Trigger fade-in animations
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.event-card.fade-in').forEach((card, i) => {
+        setTimeout(() => card.classList.add('visible'), i * 50);
+      });
+    });
+  }
+
+  // --- Format date ---
+  function formatDate(dateStr) {
+    const date = new Date(dateStr + 'T00:00:00');
+    return date.toLocaleDateString('en-US', {
+      weekday: 'short',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+  }
+
+  // --- Truncate location ---
+  function truncateLocation(location) {
+    const parts = location.split(',');
+    if (parts.length > 2) {
+      return parts.slice(0, 2).join(',').trim();
+    }
+    return location.length > 50 ? location.substring(0, 47) + '...' : location;
+  }
+
+  // --- Events count ---
+  function updateEventsCount() {
+    const total = filteredEvents.length;
+    const showing = Math.min(currentPage * EVENTS_PER_PAGE, total);
+    eventsCount.textContent = `Showing ${showing} of ${total} events`;
+  }
+
+  // --- Load More ---
+  function setupLoadMore() {
+    loadMoreBtn.addEventListener('click', () => {
+      currentPage++;
+      applyFilters();
+
+      // Scroll to newly loaded events smoothly
+      const cards = pastEventsGrid.querySelectorAll('.event-card');
+      const firstNew = cards[(currentPage - 1) * EVENTS_PER_PAGE];
+      if (firstNew) {
+        setTimeout(() => {
+          firstNew.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    });
+  }
+
+  function updateLoadMore() {
+    const totalShown = currentPage * EVENTS_PER_PAGE;
+    loadMoreContainer.style.display = totalShown >= filteredEvents.length ? 'none' : 'flex';
+  }
+
+  // --- Navigation ---
+  function setupNav() {
+    // Scroll effect
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      mainNav.classList.toggle('scrolled', currentScroll > 50);
+      lastScroll = currentScroll;
+    }, { passive: true });
+
+    // Mobile toggle
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close mobile nav on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Active section highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.querySelectorAll('a').forEach(link => {
+            link.classList.toggle('active',
+              link.getAttribute('href') === `#${entry.target.id}`
+            );
+          });
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px' });
+
+    sections.forEach(section => observer.observe(section));
+  }
+
+  // --- Modal ---
+  function setupModal() {
+    // Open modal on card click
+    pastEventsGrid.addEventListener('click', (e) => {
+      const card = e.target.closest('.event-card');
+      if (!card) return;
+
+      const index = parseInt(card.dataset.index);
+      const event = EVENTS_DATA[index];
+      openModal(event);
+    });
+
+    // Close modal
+    modalClose.addEventListener('click', closeModal);
+    eventModal.addEventListener('click', (e) => {
+      if (e.target === eventModal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  }
+
+  function openModal(event) {
+    modalImage.style.backgroundImage = `url('${event.image}')`;
+    modalCategory.textContent = event.category;
+    modalTitle.textContent = event.title;
+    modalDate.textContent = formatDate(event.date);
+    modalTime.textContent = event.time;
+    modalLocation.textContent = event.location;
+    modalAttendees.textContent = `${event.attendees} attendee${event.attendees !== 1 ? 's' : ''}`;
+    modalDescription.textContent = event.description || 'No description available.';
+
+    eventModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    eventModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // --- Scroll Animations ---
+  function setupScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.section-header, .about-text, .about-categories, .upcoming-placeholder').forEach(el => {
+      el.classList.add('fade-in');
+      observer.observe(el);
+    });
+  }
+
+  // --- Stats Counter Animation ---
+  function animateStats() {
+    const stats = document.querySelectorAll('.stat-number');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target);
+          animateCounter(el, target);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    stats.forEach(stat => observer.observe(stat));
+  }
+
+  function animateCounter(el, target) {
+    const duration = 2000;
+    const start = performance.now();
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target).toLocaleString();
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        // Add + suffix for members
+        if (target > 100) {
+          el.textContent = target.toLocaleString() + '+';
+        }
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  // --- Smooth scroll for anchor links ---
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        const navHeight = mainNav.offsetHeight;
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // --- Init on DOM ready ---
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+
+  </script>
 </body>
 </html>

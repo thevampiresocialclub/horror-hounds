@@ -1020,7 +1020,7 @@
                     </div>
                     <div class="form-group">
                         <label>Image Filename</label>
-                        <input type="text" id="fImage" placeholder="images/events/e1.jpg" oninput="updatePreview()">
+                        <input type="text" id="fImage" placeholder="images/e1.jpg" oninput="updatePreview()">
                     </div>
                 </div>
 
@@ -1229,7 +1229,7 @@ async function autoLoad() {
 
 function primeImagePlaceholder() {
     const maxId = events.length ? Math.max(...events.map(e => e.id || 0), 0) : 0;
-    document.getElementById('fImage').placeholder = 'images/events/e' + (maxId + 1) + '.jpg';
+    document.getElementById('fImage').placeholder = 'images/e' + (maxId + 1) + '.jpg';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1380,7 +1380,7 @@ function submitEvent() {
         const newEvent = {
             id: maxId + 1,
             title, date, time, venue, address, description, attendees,
-            image: image || 'images/events/e' + (maxId + 1) + '.jpg',
+            image: image || 'images/e' + (maxId + 1) + '.jpg',
             category, status, cancelled
         };
         events.unshift(newEvent);

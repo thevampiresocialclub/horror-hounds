@@ -49,7 +49,7 @@ That's it. Skip the rest of this document unless something goes wrong.
       "address": "123 Main St, Santa Ana, CA",
       "description": "A short description of the event. Keep it to 1-2 sentences.",
       "attendees": 0,
-      "image": "images/events/e100.jpg",
+      "image": "images/e100.jpg",
       "category": "Movie Night",
       "status": "upcoming",
       "cancelled": false
@@ -65,7 +65,7 @@ That's it. Skip the rest of this document unless something goes wrong.
    - **address**: Full street address (e.g., `305 E 4th St, Santa Ana, CA`)
    - **description**: Short blurb about the event
    - **attendees**: Set to 0 for new events, update later if you want
-   - **image**: Must match the filename you uploaded in Step 1 (starts with `images/events/`)
+   - **image**: Must match the filename you uploaded in Step 1 (starts with `images/`)
    - **category**: One of: `Movie Night`, `Book Club`, `Goth Night`, `Meet & Greet`, `Art/Craft`, `Outdoor/Social`, `Live Show`, `Festival`, `Holiday`
    - **status**: Use `"upcoming"` for future events, `"past"` for completed
    - **cancelled**: Set to `true` if the event is cancelled, otherwise `false`
@@ -102,7 +102,7 @@ The old `js/events-data.js` archive has been retired to `backup/events-data.js.b
 
 - **Missing comma**: Make sure there's a comma after the `}` of your event (before the next event). The LAST event in the file should NOT have a trailing comma.
 - **Wrong date format**: Use `YYYY-MM-DD`, not `MM/DD/YYYY`
-- **Wrong image path**: Make sure it starts with `images/events/` and matches your filename exactly (case-sensitive)
+- **Wrong image path**: Make sure it starts with `images/` and matches your filename exactly (case-sensitive)
 - **Forgetting quotes**: Every text value needs to be in double quotes. Numbers (`attendees`, `id`) and booleans (`true`/`false`) do NOT get quotes.
 
 ---
